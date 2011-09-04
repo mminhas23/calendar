@@ -1,0 +1,134 @@
+body {
+    color: #333;
+    padding-left:100px;
+    padding-right:100px;
+}
+
+body, p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+}
+
+pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 11px;
+}
+
+a {
+    color: #000;
+}  s
+
+#notice {
+    color: green;
+}
+
+.field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table;
+}
+
+#error_explanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+}
+
+#header {
+    background-image: url("/images/adminwhitebg.png");
+    background-repeat: no-repeat;
+    height: 130px;
+    min-width:15%;
+    max-width:15%;
+}
+
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square;
+}
+
+#content{
+    padding:20px 220px 20px 220px;
+}
+
+#content-heading {
+    display:table;
+    text-align:center;
+    height:50px;
+    width:100%;
+    color: navy;
+    /*background-image: -webkit-gradient(linear, right bottom, left top, color-stop(0.27, rgb(240,118,99)), color-stop(0.57, rgb(67,67,97)));*/
+    /*background-image: -moz-linear-gradient(right bottom, rgb(240,118,99) 27%, rgb(67,67,97) 57%);*/
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#EDEDED),to(#FFFFFF));
+    background-image: -moz-linear-gradient(center bottom, #EDEDED,#FFFFFF);
+
+}
+
+#content-body {
+    display: table;
+    width: 80%;
+    margin: auto;
+}
+#description-bar {
+    font-weight: bold;
+}
+
+.data-bar, #description-bar {
+    display: table-row;
+}
+
+.data-bar:hover{
+  background-image: -webkit-gradient(linear,left bottom,left top,from(#EDEDED),to(#FFFFFF));
+  background-image: -moz-linear-gradient(center bottom, #EDEDED,#FFFFFF);
+}
+
+#action-bar{
+    margin-top:10px;
+    text-align:right;
+}
+
+.code, .description, .actions {
+    display: table-cell;
+}
+
+.code {
+    width: 20%;
+}
+
+.description {
+    width: 40%;
+}
+
+.actions {
+    width: 40%;
+    text-align: center;
+}
+
+.action-cell {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+}
+
+.action-cell p {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+}

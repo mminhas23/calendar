@@ -1,0 +1,34 @@
+<div id='content-heading'>
+        <h1>Course Categories</h1>
+</div>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="code"> Code</div>
+            <div class="description"> Description</div>
+            <div class="actions"> Actions</div>
+        </div>
+        <% @categories.each do |category| %>
+            <div class="data-bar">
+                <div class="code">
+                    <%= category.code %>
+                </div>
+                <div class="description">
+                    <%= category.description %>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <!--<% button_group do %>-->
+                            <p><%= log_pill_button_link_to 'Show', category %></p>
+                            <p><%= edit_pill_button_link_to 'Edit', edit_category_path(category) %></p>
+                            <p><%= negative_trash_pill_button_link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></p>
+                        <!--<% end %>-->
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_category_path %>
+    </div>
+</div>
