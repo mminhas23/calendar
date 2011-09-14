@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
     if @category.save
       flash[:notice] = "Successfully created category"
     end
-    respond_with(@category,:location => categories_path)
+    respond_with(@category, :location => categories_path)
   end
 
   def edit
@@ -40,7 +40,6 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    flash[:notice] = "Successfully deleted category"
-    respond_with(@category)
+    redirect_to(categories_path)
   end
 end

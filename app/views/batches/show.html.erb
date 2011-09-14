@@ -1,0 +1,19 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @batch.code %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @batch.courseCode %>
+</p>
+<p>
+  <b>Tutor:</b>
+  <%= @batch.tutorName%>
+</p>
+
+
+<%= link_to 'Edit', edit_batch_path(@batch) %> |
+<%= link_to 'Back', batches_path %>

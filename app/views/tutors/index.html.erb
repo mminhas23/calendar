@@ -1,0 +1,48 @@
+<div id='content-heading'>
+    <h1>Listing Tutors</h1>
+</div>
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">First Name</div>
+            <div class="cell-data">Last Name</div>
+            <div class="cell-data">Email</div>
+            <div class="cell-data">DOB</div>
+            <div class="cell-data">Contact No</div>
+            <div class="cell-data"> Actions</div>
+        </div>
+        <% @tutors.each do |tutor| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= tutor.firstName %>
+                </div>
+                <div class="cell-data">
+                    <%= tutor.lastName %>
+                </div>
+                <div class="cell-data">
+                    <%= tutor.email %>
+                </div>
+                <div class="cell-data">
+                    <%= tutor.dob %>
+                </div>
+                <div class="cell-data">
+                    <%= tutor.contactNumber %>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <p><%= log_pill_button_link_to 'Show', tutor %></p>
+
+                        <p><%= edit_pill_button_link_to 'Edit', edit_tutor_path(tutor) %></p>
+
+                        <p><%= negative_trash_pill_button_link_to 'Delete',tutor, :confirm => 'Are you sure?', :method => :delete %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_tutor_path %>
+    </div>
+</div>
+

@@ -1,0 +1,18 @@
+<div id="content-heading">
+    <h1>Day Details</h1>
+</div>
+
+<p>
+    <b>Day</b>
+    <%= @day.day %>
+</p>
+
+<p>
+    <b>Sessions Available</b><br/>
+    <%@day.sessions.each do |session|%>
+        <%= session.description %><br/>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_day_path(@day) %> |
+<%= link_to 'Back', day_path %>

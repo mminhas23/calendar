@@ -1,0 +1,40 @@
+<%= form_for(@student) do |f| %>
+    <% if @student.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@student.errors.count, "error") %> prohibited this time_table from being saved:</h2>
+
+            <ul>
+                <% @student.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :dob %><br/>
+        <%= f.text_field :dob %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :address %><br/>
+        <%= f.text_area :address, :rows=>3 %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.text_field :email %><br/>
+    </div>
+    <div class="field">
+        <% Course.all.each do |course| %>
+            <%= check_box_tag "student[course_ids][]", course.id, @student.courses.include?(course) %>
+            <%= course.course_code %>
+        <% end %>
+    </div>
+    
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

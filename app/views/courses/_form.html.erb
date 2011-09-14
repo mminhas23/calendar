@@ -1,0 +1,61 @@
+<%= form_for(@course) do |f| %>
+  <% if @course.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+      <ul>
+      <% @course.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :course_code %><br />
+    <%= f.text_field :course_code %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.text_field :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date %>
+  </div>
+
+   <div class="field">
+        <%= f.label :total_seats %><br />
+        <%= f.text_field :total_seats %>
+   </div>
+
+    <div class="field">
+        <%= f.label :category, 'Course Category' %><br />
+        <%= collection_select(:course, :category_id, Category.all, :id, :code) %>
+    </div>
+
+    <!--<div class="batch">-->
+        <!--<%= f.fields_for :batches do |batch| %>-->
+            <!--<%= batch.label :code %>-->
+            <!--<%= batch.text_field :code %>-->
+
+            <!--<%= batch.label :tutor %>-->
+            <!--<%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName)%>-->
+
+            <!--<%= batch.label :course %>-->
+            <!--<%= collection_select(:batch, :course_id, Course.all, :id, :course_code)%>-->
+        <!--<% end %>-->
+    <!--</div>-->
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

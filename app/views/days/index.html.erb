@@ -1,0 +1,31 @@
+<div id='content-heading'>
+    <h1>Listing Days</h1>
+</div>
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Day</div>
+            <div class="cell-data"> Actions</div>
+        </div>
+        <% @days.each do |day| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= day.day %>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <p><%= log_pill_button_link_to 'Show', day %></p>
+
+                        <p><%= edit_pill_button_link_to 'Edit', edit_day_path(day) %></p>
+
+                        <p><%= negative_trash_pill_button_link_to 'Delete',day, :confirm => 'Are you sure?', :method => :delete %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_day_path %>
+    </div>
+</div>

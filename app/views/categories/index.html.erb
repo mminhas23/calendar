@@ -1,6 +1,7 @@
 <div id='content-heading'>
         <h1>Course Categories</h1>
 </div>
+<p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
         <div id="description-bar">
@@ -18,11 +19,9 @@
                 </div>
                 <div class="actions">
                     <div class="action-cell">
-                        <!--<% button_group do %>-->
-                            <p><%= log_pill_button_link_to 'Show', category %></p>
-                            <p><%= edit_pill_button_link_to 'Edit', edit_category_path(category) %></p>
-                            <p><%= negative_trash_pill_button_link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></p>
-                        <!--<% end %>-->
+                        <p><%= log_pill_button_link_to 'Show', category %></p>
+                        <p><%= edit_pill_button_link_to 'Edit', edit_category_path(category) %></p>
+                        <p><%= negative_trash_pill_button_link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete %></p>
                     </div>
                 </div>
             </div>

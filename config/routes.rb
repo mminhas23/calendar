@@ -27,11 +27,18 @@ Calendar::Application.routes.draw do
   #     end
   #   end
 
+  resources :home
+  resources :batches
   resources :categories
-
-  resources :tutors do
-    resources :batches
+  resources :courses
+  resources :students do
+     get 'assign', :on => :member
   end
+  resources :time_tables
+  resources :tutors 
+  resources :days
+  resources :sessions 
+  resources :surveys 
 
   # Sample resource route with sub-resources:
   #   resources :products do

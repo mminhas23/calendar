@@ -1,0 +1,30 @@
+<%= form_for(@batch) do |f| %>
+    <% if @batch.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@batch.errors.count, "error") %> prohibited this time_table from being saved:</h2>
+
+            <ul>
+                <% @batch.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :code %><br/>
+        <%= f.text_field :code %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :tutor %><br/>
+        <%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName) %>
+    </div>
+
+    <div class="field">
+        <%= f.label :course %><br/>
+        <%= collection_select(:batch, :course_id, Course.all, :id, :course_code) %>
+    </div>
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

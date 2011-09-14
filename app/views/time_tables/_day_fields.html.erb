@@ -1,0 +1,8 @@
+<p>
+    <%= f.label :day %>
+    <%= f.collection_select(:day, WeekDay.all, :name, :name, {:include_blank => true }) %>
+</p>
+                                          
+<% f.fields_for :sessions do |session| %>
+  <%= render 'session_fields', :f => session %>
+<% end %>

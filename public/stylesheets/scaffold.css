@@ -64,7 +64,7 @@ a {
 }
 
 #content{
-    padding:20px 220px 20px 220px;
+    padding:20px;
 }
 
 #content-heading {
@@ -82,7 +82,7 @@ a {
 
 #content-body {
     display: table;
-    width: 80%;
+    width: 100%;
     margin: auto;
 }
 #description-bar {
@@ -107,6 +107,10 @@ a {
     display: table-cell;
 }
 
+.cell-data{
+    display: table-cell;
+}
+
 .code {
     width: 20%;
 }
@@ -116,7 +120,7 @@ a {
 }
 
 .actions {
-    width: 40%;
+    width: 20%;
     text-align: center;
 }
 

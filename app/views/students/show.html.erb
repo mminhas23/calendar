@@ -1,0 +1,30 @@
+<p class="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @student.name %>
+</p>
+
+<p>
+  <b>DOB:</b>
+  <%= @student.dob %>
+</p>
+<p>
+  <b>Address:</b>
+  <%= @student.address%>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @student.email%>
+</p>
+
+<p>
+  <b>Courses:</b>
+  <% @student.courses.each do |course|%>
+        <%= course.course_code %> <br/>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

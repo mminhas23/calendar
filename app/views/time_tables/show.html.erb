@@ -1,0 +1,28 @@
+<div id="content-heading">
+    <h1>Time table Details</h1>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p>
+    <b>Tutor</b>
+    <%= @time_table.tutorName %>
+</p>
+<p>
+    <b>Batch</b>
+    <%= @time_table.batchCode %>
+</p>
+<p>
+    <b>Days Available</b>
+    <% @time_table.days.each do |day|%>
+        <%=day.day%>
+        <% day.sessions.each do |session|%>
+            <%= session.description%> <br/>
+        <% end%>
+        <br/>
+     <% end %>
+     
+</p>
+
+
+<%= link_to 'Edit', edit_time_table_path(@time_table) %> |
+<%= link_to 'Back', time_tables_path %>

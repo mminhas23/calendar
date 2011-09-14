@@ -1,0 +1,35 @@
+<div id="content-heading">
+    <h1>Tutor Details</h1>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p>
+    <b>First Name</b>
+    <%= @tutor.firstName %>
+</p>
+<p>
+    <b>Last Name</b>
+    <%= @tutor.lastName %>
+</p>
+<p>
+    <b>Email</b>
+    <%= @tutor.email %>
+</p>
+<p>
+    <b>DOB</b>
+    <%= @tutor.dob %>
+</p>
+<p>
+    <b>Contact Number</b>
+    <%= @tutor.contactNumber%>
+</p>
+
+<!--<p>-->
+    <!--<% @tutor.time_table.days.each do |day|%>-->
+        <!--<%= day.day%> <br/>-->
+    <!--<% end %>-->
+<!--</p>-->
+
+
+<%= link_to 'Edit', edit_tutor_path(@tutor) %> |
+<%= link_to 'Back', tutors_path %>

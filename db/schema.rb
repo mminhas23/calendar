@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110904222919) do
+ActiveRecord::Schema.define(:version => 20110910054943) do
+
+  create_table "answers", :force => true do |t|
+    t.integer  "question_id"
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "batches", :force => true do |t|
     t.string   "code"
@@ -52,6 +59,33 @@ ActiveRecord::Schema.define(:version => 20110904222919) do
 
   add_index "courses_students", ["course_id", "student_id"], :name => "by_course_student", :unique => true
 
+  create_table "days", :force => true do |t|
+    t.string   "day"
+    t.integer  "time_table_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.integer  "survey_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "description"
+    t.integer  "day_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "slots", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", :force => true do |t|
     t.string   "name"
     t.date     "dob"
@@ -61,10 +95,13 @@ ActiveRecord::Schema.define(:version => 20110904222919) do
     t.datetime "updated_at"
   end
 
-  create_table "time_slots", :force => true do |t|
-    t.date     "date"
-    t.string   "day"
-    t.string   "slot"
+  create_table "surveys", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "time_tables", :force => true do |t|
     t.integer  "tutor_id"
     t.integer  "batch_id"
     t.datetime "created_at"
@@ -77,6 +114,12 @@ ActiveRecord::Schema.define(:version => 20110904222919) do
     t.string   "email"
     t.date     "dob"
     t.string   "contactNumber"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "week_days", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

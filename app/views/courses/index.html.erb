@@ -1,0 +1,53 @@
+<div id='content-heading'>
+    <h1>Course List</h1>
+</div>
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Name</div>
+            <div class="cell-data">Code</div>
+            <div class="cell-data">Start Date</div>
+            <div class="cell-data">End Date</div>
+            <div class="cell-data">Total Seats</div>
+            <div class="cell-data">Course Category</div>
+            <div class="cell-data"> Actions</div>
+        </div>
+        <% @courses.each do |course| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= course.name %>
+                </div>
+                <div class="cell-data">
+                    <%= course.course_code %>
+                </div>
+                <div class="cell-data">
+                    <%= course.start_date %>
+                </div>
+                <div class="cell-data">
+                    <%= course.end_date %>
+                </div>
+                <div class="cell-data">
+                    <%= course.total_seats %>
+                </div>
+                <div class="cell-data">
+                    <%= course.category.code %>
+                </div>
+
+                <div class="actions">
+                    <div class="action-cell">
+                        <p><%= log_pill_button_link_to 'Show', course %></p>
+
+                        <p><%= edit_pill_button_link_to 'Edit', edit_course_path(course) %></p>
+
+                        <p><%= negative_trash_pill_button_link_to 'Delete',course, :confirm => 'Are you sure?', :method => :delete %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_course_path %>
+    </div>
+</div>
+

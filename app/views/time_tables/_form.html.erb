@@ -1,0 +1,34 @@
+<%= form_for(@time_table) do |f| %>
+    <% if @time_table.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@time_table.errors.count, "error") %> prohibited this time_table from being saved:</h2>
+
+            <ul>
+                <% @time_table.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :tutor, 'Tutor' %><br/>
+        <%= collection_select(:time_table, :tutor_id, Tutor.all, :id, :firstName) %>
+    </div>
+
+    <div class="field">
+        <%= f.label :tutor, 'Batch' %><br/>
+        <%= collection_select(:time_table, :batch_id, Batch.all, :id, :code) %>
+    </div>
+
+    <div class="field">
+        <%= f.fields_for :days do |day| %>
+            <%= render 'day_fields', :f => day %>
+        <% end %>
+    </div>
+
+
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>

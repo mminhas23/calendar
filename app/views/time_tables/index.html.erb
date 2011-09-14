@@ -1,0 +1,49 @@
+<div id='content-heading'>
+    <h1>Listing time tables</h1>
+</div>
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Tutor</div>
+            <div class="cell-data">Batch</div>
+            <div class="cell-data">Day</div>
+            <div class="cell-data">Sessions</div>
+            <div class="cell-data"> Actions</div>
+        </div>
+        <% @time_tables.each do |time_table| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= time_table.tutorName %>
+                </div>
+                <div class="cell-data">
+                    <%= time_table.batchCode %>
+                </div>
+                <div class="cell-data">
+                    <% time_table.days.each do |day| %>
+                        <%= day.day %>
+                        <% day.sessions.each do |session| %>
+                            <%= session.description %> <br/>
+                        <% end %>
+                    <% end %>
+
+                </div>
+
+                <div class="actions">
+                    <div class="action-cell">
+                        <p><%= log_pill_button_link_to 'Show', time_table %></p>
+
+                        <p><%= edit_pill_button_link_to 'Edit', edit_time_table_path(time_table) %></p>
+
+                        <p><%= negative_trash_pill_button_link_to 'Delete', time_table, :confirm => 'Are you sure?', :method => :delete %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_time_table_path %>
+    </div>
+</div>
+
+

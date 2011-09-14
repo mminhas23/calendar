@@ -1,0 +1,32 @@
+<div id="content-heading">
+    <h1>Course Details</h1>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p>
+    <b>Name</b>
+    <%= @course.name %>
+</p>
+<p>
+    <b>Code</b>
+    <%= @course.course_code %>
+</p>
+<p>
+    <b>Start Date</b>
+    <%= @course.start_date %>
+</p>
+<p>
+    <b>End Date</b>
+    <%= @course.end_date %>
+</p>
+<p>
+    <b>Total Seats</b>
+    <%= @course.total_seats %>
+</p>
+<p>
+    <b>Category</b>
+    <%= @course.category.code %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
