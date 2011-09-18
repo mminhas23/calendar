@@ -1,8 +1,10 @@
 class TutorsController < ApplicationController
   respond_to :html, :xml
+  before_filter :authenticate_user!
 
   def index
     @tutors = Tutor.all
+    flash[:notice] = "Currently there are no tutors. Please click on Add button to create one." if @tutors.empty?
     respond_with(@tutors)
   end
 

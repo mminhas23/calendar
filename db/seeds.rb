@@ -6,5 +6,5 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-slots = Slot.create([{:description => '8AM to 10AM'}, {:description => '10AM to 12AM'}, {:description => '1PM to 3PM'}, {:description => '3PM to 5 PM'}, {:description => '5PM to 7PM'}])
-week_days = WeekDay.create([{:name => 'Monday'}, {:name => 'Tuesday'}, {:name => 'Wednesday'}, {:name => 'Thursday'}, {:name => 'Friday'}])
+slots = Description.create([{:description => '8AM to 10AM'}, {:description => '10AM to 12AM'}, {:description => '1PM to 3PM'}, {:description => '3PM to 5 PM'}, {:description => '5PM to 7PM'}])
+week_days = WeekDay.create([{:name => 'Monday'}, {:name => 'Tuesday'}, {:name => 'Wednesday'}, {:name => 'Thursday'}, {:name => 'Friday'}, {:name => 'Saturday'}, {:name => 'Sunday'}])

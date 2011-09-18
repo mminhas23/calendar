@@ -17,7 +17,7 @@
     </div>
     <div class="field">
         <%= f.label :tutor %><br/>
-        <%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName) %>
+        <%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName, {:include_blank => '--None--' }) %>
     </div>
 
     <div class="field">

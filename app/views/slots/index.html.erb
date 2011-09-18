@@ -1,0 +1,31 @@
+<div id='content-heading'>
+    <h1>Listing slots</h1>
+</div>
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Description</div>
+            <div class="cell-data"> Actions</div>
+        </div>
+        <% @slots.each do |slot| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= slot.description %>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <p><%= log_pill_button_link_to 'Show', slot %></p>
+
+                        <p><%= edit_pill_button_link_to 'Edit', edit_slot_path(slot) %></p>
+
+                        <p><%= negative_trash_pill_button_link_to 'Delete',slot, :confirm => 'Are you sure?', :method => :delete %></p>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+        <%= add_pill_button_link_to 'Add New', new_slot_path %>
+    </div>
+</div>

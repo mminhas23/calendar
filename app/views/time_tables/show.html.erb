@@ -15,8 +15,8 @@
     <b>Days Available</b>
     <% @time_table.days.each do |day|%>
         <%=day.day%>
-        <% day.sessions.each do |session|%>
-            <%= session.description%> <br/>
+        <% day.slots.each do |slot|%>
+            <%= slot.description%> <br/>
         <% end%>
         <br/>
      <% end %>

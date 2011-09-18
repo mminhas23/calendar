@@ -1,0 +1,16 @@
+<div id="content-heading">
+    <h1>User Details</h1>
+</div>
+
+<p class="notice"><%= notice %></p>
+<p>
+    <b>Email</b>
+    <%= @result.email %>
+</p>
+<p>
+    <b>Role</b>
+    <%= @result.role %>
+</p>
+
+<%= link_to "Edit", edit_user_path(@result)%>
+<%= link_to "Back", user_index_path%>

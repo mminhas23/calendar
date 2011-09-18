@@ -1,0 +1,22 @@
+<h2>New User</h2>
+
+<%= form_for(@result,
+              :url => create_user_path) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div>
+      <%= f.label :role %><br />
+      <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+  </div>
+
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+

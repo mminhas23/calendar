@@ -5,12 +5,20 @@ class TimeTable < ActiveRecord::Base
   accepts_nested_attributes_for :days, :reject_if => lambda { |a| a[:day].blank? }, :allow_destroy => true
 
   def tutorName
-    tutor = Tutor.find(self.tutor)
-    tutor.firstName + " " + tutor.lastName
+    if self.tutor!=nil
+      tutor = Tutor.find(self.tutor)
+      tutor.firstName + " " + tutor.lastName
+    else
+      "Not assigned"
+    end
   end
 
   def batchCode
-    batch = Batch.find(self.batch)
-    batch.code
+    if self.batch!=nil
+      batch = Batch.find(self.batch)
+      batch.code
+    else
+      "Not assigned" 
+    end
   end
 end

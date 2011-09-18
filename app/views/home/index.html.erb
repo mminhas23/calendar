@@ -1,11 +1,15 @@
-<h1>Ashton College</h1>
+<% if user_signed_in? -%>
+    <h1>Ashton College</h1>
+    <p><%= link_to "Course Categories", categories_path %></p>
+    <p><%= link_to "Tutors", tutors_path %></p>
+    <p><%= link_to "Batches", batches_path %></p>
+    <p><%= link_to "Courses", courses_path %></p>
+    <p><%= link_to "Students", students_path %></p>
+    <p><%= link_to "Time Tables", time_tables_path %></p>
+    <p><%= link_to "Batch Sessions", descriptions_path %></p>
+<% end -%>
 
-<p><%= link_to "Course Categories", categories_path %></p>
-<p><%= link_to "Tutors", tutors_path %></p>
-<p><%= link_to "Batches", batches_path %></p>
-<p><%= link_to "Courses", courses_path %></p>
-<p><%= link_to "Students", students_path %></p>
-<p><%= link_to "Time Tables", time_tables_path %></p>
-<p><%= link_to "Days", days_path %></p>
-<p><%= link_to "Sessions", sessions_path %></p>
-<p><%= link_to "Surveys", surveys_path %></p>
+<% if can? :manage, @user %>
+    <%= link_to "View Users", user_index_path %>
+<% end %>
+

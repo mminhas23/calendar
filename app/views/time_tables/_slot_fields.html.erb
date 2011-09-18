@@ -1,0 +1,4 @@
+<p>
+    <%= f.label :slots %>
+    <%= f.collection_select(:description, Description.all, :description, :description, {:include_blank => true }) %>
+</p>

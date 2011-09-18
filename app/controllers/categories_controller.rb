@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
   respond_to :html, :xml
+  before_filter :authenticate_user!
 
   def index
     @categories = Category.all
+    flash[:notice] = "Currently there are no categories. Please click on Add button to create one." if @categories.empty?
     respond_with(@categories)
   end
 

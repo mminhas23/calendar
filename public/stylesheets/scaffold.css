@@ -58,6 +58,25 @@ a {
     max-width:15%;
 }
 
+#navigation-bar{
+    display :-webkit-box;
+    display: -moz-box;
+    width:100%;
+}
+
+.navigation-buttons{
+    -webkit-box-flex: 4;
+    -moz-box-flex: 4;
+
+}
+
+.logged-in-status{
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    text-align:right;
+    vertical-align:text-bottom;
+}
+
 #error_explanation ul li {
     font-size: 12px;
     list-style: square;
@@ -135,4 +154,26 @@ a {
 .action-cell p {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
+}
+
+#student-courses{
+    border: 1px solid green;    
+}
+
+#batches-available{
+    border: 1px solid black;
+    display:block;    
+    width:300px;
+    height:400px;
+}
+
+#courses-available{
+    border: 1px solid black;
+    display:block;
+    width:300px;
+    height:400px;
+}
+
+#batches-available.hidden{
+    display:none;
 }

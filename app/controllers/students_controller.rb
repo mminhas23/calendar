@@ -1,8 +1,13 @@
 class StudentsController < ApplicationController
   respond_to :html, :xml
+  respond_to :js, :only => :batches
+  respond_to :js, :only =>:courses
+
+  before_filter :authenticate_user!
   
   def index
     @students = Student.all
+    flash[:notice] = "Currently there are no students. Please click on Add button to create one." if @students.empty?
     respond_with(@students)
   end
 
@@ -49,5 +54,17 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.destroy
     redirect_to(students_path)
+  end
+
+  def batches
+    @batches = Batch.find(params[:id])
+    respond_with(@batches)
+  end
+
+  def courses
+    @student = Student.new
+    @courses = Course.where(:category_id => params[:id])
+    respond_with(@courses)
+
   end
 end

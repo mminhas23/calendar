@@ -3,6 +3,6 @@
     <%= f.collection_select(:day, WeekDay.all, :name, :name, {:include_blank => true }) %>
 </p>
                                           
-<% f.fields_for :sessions do |session| %>
-  <%= render 'session_fields', :f => session %>
+<% f.fields_for :slots do |slot| %>
+  <%= render 'slot_fields', :f => slot %>
 <% end %>

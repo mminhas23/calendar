@@ -5,8 +5,12 @@ class Batch < ActiveRecord::Base
   has_and_belongs_to_many :students, :uniq =>true
 
   def tutorName
-    tutor = Tutor.find(self.tutor)
-    tutor.firstName + " " + tutor.lastName
+    if self.tutor!=nil
+      tutor = Tutor.find(self.tutor)
+      tutor.firstName + " " + tutor.lastName
+    else
+      "Not assigned"
+    end
   end
 
   def courseCode

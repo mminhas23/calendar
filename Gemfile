@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'css3buttons', '0.9.5'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'devise'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'

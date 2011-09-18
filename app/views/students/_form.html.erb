@@ -27,13 +27,21 @@
         <%= f.label :email %><br/>
         <%= f.text_field :email %><br/>
     </div>
-    <div class="field">
-        <% Course.all.each do |course| %>
-            <%= check_box_tag "student[course_ids][]", course.id, @student.courses.include?(course) %>
-            <%= course.course_code %>
-        <% end %>
+    <div id="details-container">
+        <div id="categories"></div>
+        <div id="courses-available"></div>
+        <div id="batches-available"></div>
     </div>
-    
+    <div class="field">
+        <div id="course-categories">
+            <%=f.label :categories %><br/>
+            <% Category.all.each do |categories| %>
+                <%= check_box_tag "categories[]",categories.id %>
+                <%= categories.description %>
+            <% end %>
+        </div>
+    </div>
+    <br/>
     <div class="actions">
         <%= f.submit %>
     </div>

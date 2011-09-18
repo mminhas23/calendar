@@ -1,8 +1,10 @@
 class BatchesController < ApplicationController
   respond_to :html, :xml
+  before_filter :authenticate_user!
   
   def index
     @batches = Batch.all
+    flash[:notice] = "Currently there are no batches. Please click on Add button to create one." if @batches.empty?
     respond_with(@batches)
   end
 

@@ -1,5 +1,6 @@
 class TimeTablesController < ApplicationController
   respond_to :html, :xml
+  before_filter :authenticate_user!
 
   def index
     @time_tables = TimeTable.all
@@ -15,7 +16,7 @@ class TimeTablesController < ApplicationController
     @time_table = TimeTable.new
     5.times do
        day = @time_table.days.build
-       5.times {day.sessions.build}
+       5.times {day.slots.build}
     end
     respond_with(@time_table)
   end

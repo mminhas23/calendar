@@ -8,7 +8,7 @@
             <div class="cell-data">Tutor</div>
             <div class="cell-data">Batch</div>
             <div class="cell-data">Day</div>
-            <div class="cell-data">Sessions</div>
+            <div class="cell-data">Slots</div>
             <div class="cell-data"> Actions</div>
         </div>
         <% @time_tables.each do |time_table| %>
@@ -22,8 +22,8 @@
                 <div class="cell-data">
                     <% time_table.days.each do |day| %>
                         <%= day.day %>
-                        <% day.sessions.each do |session| %>
-                            <%= session.description %> <br/>
+                        <% day.slots.each do |slot| %>
+                            <%= slot.description %> <br/>
                         <% end %>
                     <% end %>
 

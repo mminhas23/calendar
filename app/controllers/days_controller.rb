@@ -1,8 +1,10 @@
 class DaysController < ApplicationController
   respond_to :html, :xml
+  before_filter :authenticate_user!
 
   def index
     @days = Day.all
+    flash[:notice] = "Currently there are no days. Please click on Add button to create one." if @days.empty?
     respond_with(@days)
   end
 
@@ -13,7 +15,7 @@ class DaysController < ApplicationController
 
   def new
     @day = Day.new
-    @day.sessions.build
+    @day.slots.build
     respond_with(@day)
   end
 
@@ -40,5 +42,6 @@ class DaysController < ApplicationController
   def destroy
     @day = Day.find(params[:id])
     @day.destroy
+    redirect_to(days_path)
   end
 end

@@ -22,38 +22,24 @@
   </div>
 
   <div class="field">
-    <%= f.label :start_date %><br />
-    <%= f.text_field :start_date %>
+    <%= f.label :start_date %>
+    <%= f.text_field :start_date, :class => "date-pick"%>
   </div>
-
+  <br/>
   <div class="field">
-    <%= f.label :end_date %><br />
-    <%= f.text_field :end_date %>
+    <%= f.label :end_date %>
+    <%= f.text_field :end_date, :class => "date-pick" %> 
   </div>
-
+    <br/>
    <div class="field">
         <%= f.label :total_seats %><br />
         <%= f.text_field :total_seats %>
    </div>
 
     <div class="field">
-        <%= f.label :category, 'Course Category' %><br />
+        <%= f.label :category, 'Course Category'%><br />
         <%= collection_select(:course, :category_id, Category.all, :id, :code) %>
     </div>
-
-    <!--<div class="batch">-->
-        <!--<%= f.fields_for :batches do |batch| %>-->
-            <!--<%= batch.label :code %>-->
-            <!--<%= batch.text_field :code %>-->
-
-            <!--<%= batch.label :tutor %>-->
-            <!--<%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName)%>-->
-
-            <!--<%= batch.label :course %>-->
-            <!--<%= collection_select(:batch, :course_id, Course.all, :id, :course_code)%>-->
-        <!--<% end %>-->
-    <!--</div>-->
-
 
   <div class="actions">
     <%= f.submit %>
