@@ -12,8 +12,20 @@
     <% end %>
 
     <div class="field">
-        <%= f.label :name %><br/>
-        <%= f.text_field :name %><br/>
+        <%= f.label :first_name %><br/>
+        <%= f.text_field :first_name %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :last_name %><br/>
+        <%= f.text_field :last_name %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :email %><br/>
+        <%= f.text_field :email %><br/>
+    </div>
+    <div class="field">
+        <%= f.label :contact_number %><br/>
+        <%= f.text_field :contact_number %><br/>
     </div>
     <div class="field">
         <%= f.label :dob %><br/>
@@ -23,23 +35,71 @@
         <%= f.label :address %><br/>
         <%= f.text_area :address, :rows=>3 %><br/>
     </div>
+
     <div class="field">
-        <%= f.label :email %><br/>
-        <%= f.text_field :email %><br/>
+        <%= f.label :student_type %><br/>
+        <%= collection_select(:student, :student_type, StudentType.all, :description, :description)%>
     </div>
+
+    <div class="type3Details">
+         <%= f.label :company_name %>
+         <%= f.text_field :company_name %><br/>
+         <%= f.label :company_address %>
+         <%= f.text_field :company_address %><br/>
+         <%= f.label :company_contact_name %>
+         <%= f.text_field :company_contact_name %><br/>
+         <%= f.label :company_contact_number %>
+         <%= f.text_field :company_contact_number %><br/>
+    </div>
+
+    <div class="field">
+        <%= f.label :payment_method, "Payment Method" %><br/>
+        <% PaymentMethod.all.each do |payment| %>
+            <%= check_box_tag "payment_methods[]",payment.description%> <%= payment.description %>
+        <% end %>
+    </div>
+
+    <div class="field">
+        <%= f.check_box :fee_received %>
+        <%= f.label :fee_received, "Fees Received" %>
+        <%= f.check_box :docs_received %>
+        <%= f.label :docs_received, "Documents Received" %>
+    </div>
+
+    <%= f.text_field :enrolled_by, :value => current_user.email , :hidden => true%>
+
     <div id="details-container">
-        <div id="categories"></div>
-        <div id="courses-available"></div>
-        <div id="batches-available"></div>
-    </div>
-    <div class="field">
         <div id="course-categories">
             <%=f.label :categories %><br/>
-            <% Category.all.each do |categories| %>
-                <%= check_box_tag "categories[]",categories.id %>
-                <%= categories.description %>
+            <% Category.all.each do |category| %>
+                <% if @categories!=nil %>
+                    <%= check_box_tag "categories[]",category.id, @categories.include?(category)%>
+                 <% else %>
+                    <%= check_box_tag "categories[]",category.id%>
+                 <% end %>
+                <%= category.description %><br/>
             <% end %>
         </div>
+        <div id="courses-available">
+            <%=f.label :courses %><br/>
+            <% @student.courses.each do |course| %>
+                <%= check_box_tag "student[course_ids][]",course.id,  @student.courses.include?(course) %>
+                <%= course.course_code %><br/>
+            <% end %>
+        </div>
+        <div id="batches-available">
+           <%=f.label :batches %><br/>
+            <% @student.batches.each do |batch| %>
+                <%= check_box_tag "student[batch_ids][]",batch.id,  @student.batches.include?(batch) %>
+                <%= batch.code %>(Seats Available: <%=batch.seats_available%>)<br/>
+            <% end %>
+        </div>
+    </div>
+    <div class="comments-container">
+         <% f.fields_for :comments do |builder| %>
+            <%= render "comment_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Comments", f, :comments %>
     </div>
     <br/>
     <div class="actions">

@@ -1,1 +1,1 @@
-$('#batches-available').html("<%= escape_javascript(@batches.code) %>");
+$('#batches-available').html('Batches<br/><% @batches.each do |batch| %><%= check_box_tag "student[batch_ids][]", batch.id, @student.batches.include?(batch) %><%= batch.code %>(Seats Available: <%=batch.seats_available%>)<br/><% end %>').html();

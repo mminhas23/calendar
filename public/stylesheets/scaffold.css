@@ -1,7 +1,6 @@
 body {
     color: #333;
-    padding-left:100px;
-    padding-right:100px;
+    padding:0;
 }
 
 body, p, ol, ul, td {
@@ -50,18 +49,21 @@ a {
     color: #fff;
 }
 
-#header {
-    background-image: url("/images/adminwhitebg.png");
-    background-repeat: no-repeat;
-    height: 130px;
-    min-width:15%;
-    max-width:15%;
+#header-bar{
+    margin-top:10px;
+    display:-webkit-box;
+    width:100%;
+}
+
+#logo img{
+    top: 0;
+    left: 0;
+    height:100px;
 }
 
 #navigation-bar{
     display :-webkit-box;
-    display: -moz-box;
-    width:100%;
+    -webkit-box-flex: 4;
 }
 
 .navigation-buttons{
@@ -156,24 +158,112 @@ a {
     -moz-box-flex: 1;
 }
 
-#student-courses{
-    border: 1px solid green;    
-}
-
-#batches-available{
+#details-container{
+    width:100%;
     border: 1px solid black;
-    display:block;    
-    width:300px;
-    height:400px;
+    display :-webkit-box;
+    -webkit-box-orient: horizontal;
+    display: -moz-box;
+    -moz-box-orient: horizontal;
 }
 
-#courses-available{
-    border: 1px solid black;
-    display:block;
-    width:300px;
-    height:400px;
+#details-container #course-categories{
+     -webkit-box-flex: 1;
+    -moz-box-flex: 1;
 }
 
-#batches-available.hidden{
-    display:none;
+#details-container #batches-available{
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+}
+
+#details-container #courses-available{
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+}
+
+.type3Details{
+    display :none;
+}
+
+/* root element for tabs  */
+.tabs {
+	list-style:none;
+	margin:0 !important;
+	padding:0;
+	height:30px;
+	border-bottom:1px solid #666;
+}
+
+/* single tab */
+.tabs li {
+	float:left;
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important;
+}
+
+/* link inside the tab. uses a background image */
+.tabs a {
+	background: url(/images/tabs.png) no-repeat -652px 0;
+	font-size:11px;
+	display:block;
+	height: 30px;
+	line-height:30px;
+	width: 111px;
+	text-align:center;
+	text-decoration:none;
+	color:#000;
+	padding:0px;
+	margin:0px;
+	position:relative;
+	top:1px;
+}
+
+.tabs a:active {
+	outline:none;
+}
+
+/* when mouse enters the tab move the background image */
+.tabs a:hover {
+	background-position: -652px -31px;
+	color:#fff;
+}
+
+/* active tab uses a class name "current". it's highlight is also done by moving the background image. */
+.tabs .current, .tabs .current:hover, .tabs li.current a {
+	background-position: -652px -62px;
+	cursor:default !important;
+	color:#000 !important;
+}
+
+/* Different widths for tabs: use a class name: w1, w2, w3 or w2 */
+
+
+/* width 1 */
+.tabs .w1 			{ background-position: -519px 0; width:134px; }
+.tabs .w1:hover 	{ background-position: -519px -31px; }
+.tabs .w1.current { background-position: -519px -62px; }
+
+/* width 2 */
+.tabs .w2 			{ background-position: -366px -0px; width:154px; }
+.tabs .w2:hover 	{ background-position: -366px -31px; }
+.tabs .w2.current { background-position: -366px -62px; }
+
+
+/* width 3 */
+.tabs .w3 			{ background-position: -193px -0px; width:174px; }
+.tabs .w3:hover 	{ background-position: -193px -31px; }
+.tabs .w3.current { background-position: -193px -62px; }
+
+/* width 4 */
+.tabs .w4 			{ background-position: -0px -0px; width:194px; }
+.tabs .w4:hover 	{ background-position: -0px -31px; }
+.tabs .w4.current { background-position: -0px -62px; }
+
+
+/* initially all panes are hidden */
+.panes .pane {
+	display:none;
 }

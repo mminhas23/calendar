@@ -11,6 +11,7 @@ Calendar::Application.routes.draw do
   resources :categories
   resources :courses
   resources :students do
+    resources :comments
     get 'assign', :on => :member
   end
   resources :time_tables

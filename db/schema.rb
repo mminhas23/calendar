@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915074006) do
+ActiveRecord::Schema.define(:version => 20110925013059) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20110915074006) do
     t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "total_seats"
+    t.integer  "seats_available"
   end
 
   create_table "batches_students", :id => false, :force => true do |t|
@@ -44,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20110915074006) do
   create_table "categories", :force => true do |t|
     t.string   "code"
     t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "commenter"
+    t.text     "content"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -79,6 +89,12 @@ ActiveRecord::Schema.define(:version => 20110915074006) do
     t.datetime "updated_at"
   end
 
+  create_table "payment_methods", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", :force => true do |t|
     t.integer  "survey_id"
     t.text     "content"
@@ -93,11 +109,31 @@ ActiveRecord::Schema.define(:version => 20110915074006) do
     t.datetime "updated_at"
   end
 
+  create_table "student_types", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "students", :force => true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "contact_number"
     t.date     "dob"
     t.text     "address"
-    t.string   "email"
+    t.string   "student_type"
+    t.string   "company_name"
+    t.string   "company_address"
+    t.string   "company_contact_name"
+    t.string   "company_contact_number"
+    t.string   "paymnet_method"
+    t.boolean  "fee_received"
+    t.boolean  "fee_processed"
+    t.boolean  "docs_received"
+    t.boolean  "docs_processed"
+    t.string   "enrolled_by"
+    t.string   "identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <script type="text/javascript" src="/javascripts/iscroll.js"></script>
+        <script type="text/javascript">
+            var myScroll;
+            var rightScroll;
+            function loaded() {
+                myScroll = new iScroll('list');
+                rightScroll = new iScroll('section');
+            }
+            document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+            document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+        </script>
+        <style type="text/css" media="all">
+            body,ul,li,p {
+                padding:0;
+                margin:0;
+                border:0;
+                font-family: Verdana;
+            }
+            ul {
+                list-style-type: none;
+            }
+            #main{
+                display: -webkit-box;
+                margin:auto;
+            }
+            #cat{
+                /*-webkit-box-flex: 3.05;*/
+                height:80px;
+                line-height:80px;
+                text-align:center;
+                background-color:black;
+                color:white;
+                padding-left:10px;
+                border-right:1px solid gray;
+                border-bottom:1px solid gray;
+            }
+            #month,
+            #week{
+                -webkit-box-flex: 8;
+                display: -webkit-box;
+                height:40px;
+                background-color:black;
+                color:white;
+            }
+            #month p,
+            #week p{
+                -webkit-box-flex: 1;
+                text-align:center;
+                border-right:1px solid gray;
+                height:40px;
+                line-height:40px;
+            }
+            #left-pane{
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-box-flex: 1;
+                background-color:black;
+                color:white;
+            }
+            #left-pane li{
+                padding-top: 10px;
+                padding-left:10px;
+                padding-bottom:10px;
+            }
+            #right-pane {
+                -webkit-box-flex: 8;
+                -webkit-box-orient: vertical;
+            }
+            #left-scroller,
+            #right-scroller{
+                  position:relative;
+                  z-index:1;
+            }
+            #list{
+                -webkit-box-flex: 1;
+                overflow:hidden;
+                height:100%;
+            }
+            #section{
+                -webkit-box-flex: 1;
+                overflow:hidden;
+                height:100%;
+                padding: 10px;
+            }
+            #section li{
+                padding-bottom:10px;
+            }
+        </style>    
+    </head>
+    <body>
+        <div id="main">
+            <div id="left-pane">
+                <div id="cat">Categories</div>
+                <div id="left-scroller">
+                    <div id="list">
+                        <ul>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                             <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li>Short Term Course</li>
+                            <li>International Students</li>
+                            <li>Local Students</li>
+                            <li>Vocational Courses</li>
+                            <li>Managing Self</li>
+                            <li>Managing Teams</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="right-pane">
+                <div id="month">
+                    <p>January</p>
+                    <p>February</p>
+                    <p style="background-color:darkgray;color:black;">March</p>
+                    <p>April</p>
+                    <p>May</p>
+                    <p>June</p>
+                </div>
+                <div id="week" style="background-color:darkgray;color:black;">
+                    <p>Week 1</p>
+                    <p>Week 2</p>
+                    <p>Week 3</p>
+                    <p>Week 4</p>
+                </div>
+                <div id="right-scroller">
+                    <div id="section">
+                        <ul>
+                            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus
+                                blandit a a tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet
+                                elit. Fusce vitae semper dui. Donec diam ante, ultricies et lacinia nec, varius nec
+                                justo. Etiam id libero varius dui rutrum posuere. Vestibulum lobortis bibendum lectus a
+                                blandit. Donec mollis dignissim interdum. Suspendisse et massa nec urna vehicula
+                                blandit. Morbi nibh nulla, ullamcorper tristique vulputate sed, consequat vitae est.
+                                Integer imperdiet lacus eget ipsum posuere varius. Praesent egestas nisl ut arcu
+                                hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed luctus enim
+                                consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare. Ut
+                                nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna
+                                eu sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae
+                                libero.
+                            </li>
+
+                            <li>Duis nec egestas elit. Ut porta mi in magna vulputate lacinia. Quisque at quam erat,
+                                pellentesque vulputate felis. Sed sit amet laoreet velit. Fusce pulvinar ante ut massa
+                                bibendum vulputate non vitae tellus. Vivamus molestie pellentesque eleifend. In
+                                ultrices, libero ut bibendum tristique, erat nibh ultrices velit, ac malesuada nulla
+                                erat nec est. Phasellus mi elit, molestie non vehicula eu, malesuada at turpis. Nam
+                                aliquam tristique ligula, id cursus diam aliquam et. Lorem ipsum dolor sit amet,
+                                consectetur adipiscing elit. Aenean et nisi sodales mi consectetur congue. Aenean
+                                faucibus nisi sed nisi malesuada sit amet vehicula velit luctus. Nullam magna nisi,
+                                volutpat ac luctus quis, ullamcorper nec elit.
+                            </li>
+
+                            <li>Aenean at facilisis felis. Sed rutrum ornare mi non laoreet. Donec nec lectus magna.
+                                Maecenas velit quam, scelerisque eu aliquet nec, cursus vitae urna. In eros augue,
+                                convallis tincidunt viverra quis, eleifend sed dolor. Pellentesque habitant morbi
+                                tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus hendrerit
+                                lectus eu ipsum dapibus eleifend. Nunc nibh metus, adipiscing at ornare rhoncus,
+                                ullamcorper at eros. Nunc consequat, tellus sagittis posuere convallis, erat urna
+                                pulvinar velit, vitae tincidunt orci diam vitae purus.
+                            </li>
+
+                            <li>Nam fermentum eros eu enim semper id dapibus metus volutpat. Mauris porttitor eros
+                                tincidunt orci molestie et venenatis tortor fermentum. Nulla eu odio et libero euismod
+                                euismod ac ut libero. Suspendisse potenti. Donec sodales laoreet nisl, sed congue enim
+                                porttitor malesuada. Morbi non aliquam justo. Fusce lacus arcu, viverra vel facilisis
+                                at, feugiat ac nunc. Cras nisl libero, molestie eu aliquet nec, malesuada eleifend
+                                lectus. Duis eleifend mi eu tellus pretium ultrices. Duis posuere imperdiet lectus
+                                placerat blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
+                                posuere cubilia Curae; Mauris varius, leo ac blandit vehicula, diam dolor bibendum
+                                dolor, vel tristique nunc urna eu massa. Vivamus bibendum orci vel arcu laoreet vel
+                                rutrum justo laoreet.
+                            </li>
+
+                            <li>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Curabitur suscipit facilisis porttitor. Morbi adipiscing quam id metus
+                                hendrerit eu vestibulum diam rhoncus. Pellentesque ut magna sit amet lectus cursus
+                                egestas id eu nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae
+                                justo mi. Suspendisse vitae sodales leo. Etiam ullamcorper lacus odio, eget pellentesque
+                                libero.
+                            </li>
+
+                            <li>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                                egestas. Curabitur suscipit facilisis porttitor. Morbi adipiscing quam id metus
+                                hendrerit eu vestibulum diam rhoncus. Pellentesque ut magna sit amet lectus cursus
+                                egestas id eu nunc. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae
+                                justo mi. Suspendisse vitae sodales leo. Etiam ullamcorper lacus odio, eget pellentesque
+                                libero.
+                            </li>
+                            <li> </li>
+                            <li> </li>
+                            <li> </li>
+                            <li> </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>    
+
+        </div>
+    </body>
+</html>

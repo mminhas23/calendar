@@ -1,9 +1,0 @@
-<div class="field">
-    <div id="student-courses">
-        <%= f.label :courses %><br/>
-        <% Course.all.each do |course| %>
-            <%= check_box_tag "student[course_ids][]", course.id, @student.courses.include?(course) %>
-            <%= course.course_code %>
-        <% end %>
-    </div>
-</div>

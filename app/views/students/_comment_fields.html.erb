@@ -1,0 +1,6 @@
+<div class="comment-fields">
+    <%= f.text_field :commenter, :value => current_user.email , :hidden => true%>
+    <%= f.label :content, "Comments" %><br/>
+    <%= f.text_area :content, :rows => 3 %>
+    <%= link_to_function "remove", "remove_fields(this)" %>
+</div>

@@ -21,6 +21,8 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(params[:category])
     if @category.save
+#      @user = User.find(1)
+#      StudentMailer.welcome_email(@user).deliver
       flash[:notice] = "Successfully created category"
     end
     respond_with(@category, :location => categories_path)

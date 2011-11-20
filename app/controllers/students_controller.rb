@@ -1,7 +1,7 @@
+require 'active_support/secure_random'
 class StudentsController < ApplicationController
   respond_to :html, :xml
-  respond_to :js, :only => :batches
-  respond_to :js, :only =>:courses
+  respond_to :js, :only => [ :courses, :batches]
 
   before_filter :authenticate_user!
   
@@ -13,6 +13,7 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @student.comments.build
     respond_with(@student)
   end
   
@@ -23,6 +24,11 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(params[:student])
+    @student.identifier = ActiveSupport::SecureRandom.urlsafe_base64(8) 
+    batches = Batch.where(:id => params[:student][:batch_ids])
+    for batch in batches
+        Batch.update(batch.id,:seats_available => batch.seats_available - 1)
+    end
     if @student.save
       flash[:notice] = "Successfully created Student"
     end
@@ -31,23 +37,40 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    @categories = Category.where(:id => @student.course_categories)
+    @coursesAvailable = Course.where(:category_id => @categories)
+    @batchesAvailable = Batch.where(:course_id => @student.courses)
     respond_with(@student)
   end
 
   def update
     params[:student][:course_ids] ||= []
     params[:student][:batch_ids] ||= []
+
     @student = Student.find(params[:id])
+    
+    old_batches = @student.batches.sort
+    current_batches = Batch.where(:id => params[:student][:batch_ids]).to_a.sort
+
+    if ((old_batches<=>current_batches)!=0)
+      for batch in old_batches
+        Batch.update(batch.id, "seats_available" => batch.seats_available + 1)
+      end
+      for batch in current_batches
+        Batch.update(batch.id, "seats_available" => batch.seats_available - 1)
+      end
+    end
+
     if @student.update_attributes(params[:student])
       flash[:notice] = "Successfully updated Student"
     end
-    respond_with(@student)
+    respond_with(@student, :location => students_path)
   end
 
   def assign
     @student = Student.find(params[:id])
-    @batches = Batch.where(:course_id => @student.courses)
-    respond_with(@batches)
+    @batchesAvailable = Batch.where(:course_id => @student.courses)
+    respond_with(@batchesAvailable)
   end
 
   def destroy
@@ -57,14 +80,14 @@ class StudentsController < ApplicationController
   end
 
   def batches
-    @batches = Batch.find(params[:id])
-    respond_with(@batches)
+    @student = Student.new
+    @batchesAvailable = Batch.where(:course_id => params[:id])
+    respond_with(@batchesAvailable)
   end
 
   def courses
     @student = Student.new
-    @courses = Course.where(:category_id => params[:id])
-    respond_with(@courses)
-
+    @coursesAvailable = Course.where(:category_id => params[:id])
+    respond_with(@coursesAvailable)
   end
 end

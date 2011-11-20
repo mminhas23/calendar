@@ -1,5 +1,7 @@
 $(function()
 {
+    $("ul.tabs").tabs("div.panes > div");
+    
 	$('.date-pick').datePicker()
 	$('#course_start_date').bind(
 		'dpClosed',
@@ -24,41 +26,61 @@ $(function()
 		}
 	);
 
-
+    var categoryIds = new Array();
+    $('#course-categories :checked').each(function(index){
+        categoryIds[index] =  $(this).val();
+    });
 
     $('#course-categories input').live('click', function(){
         var element = $(this);
-        var courseId = $(this).val();
+        var categoryId = $(this).val();
         if(element.attr('checked')=='checked'){
-            jQuery.get("/students/courses/"+courseId);
-            $('#batches-available').css('display','block');
+            jQuery.get("/students/courses/"+categoryId);
         }else{
-           $('#batches-available').html("");
-            $('#batches-available').css('display','none');
+           $('#courses-available').html("");
         }
-
-
-//    ,function(data){
-//            console.log(data);
-//            console.log("...");
-//            $("#batches_available").html(data);
-//        });
-
-//        if($(this).attr('checked')=='checked'){
-//            $('#batches-available').html("<%= @user.email %>");
-//            $('#batches-available').html("<%= escape_javascript(@user.email) %>");
-//
-//            console.log("you checked");
-//        }else{
-//            console.log('you unchecked');
-//        }
-//        $('#batches-available').toggleClass('hidden');
     });
 
-    $('#batches-available input').live('click',function(){
-        alert("Hello");
+    $('#courses-available input').live('click',function(){
+        var element = $(this);
+        var courseId = $(this).val();
+        if(element.attr('checked')=='checked'){
+            jQuery.get("/students/batches/"+courseId);
+        }else{
+           $('#batches-available').html("");
+        }
+    });
+
+    $('#student_student_type').change(function(){
+        type = $(this).val();
+        if(type =='Type_3'){
+            $('.type3Details').css('display','block');
+        }else{
+            resetType3Details();
+        }
     });
 
 });
 
+function resetType3Details() {
+    $('.type3Details input').each(function(){
+        $(this).val("");
+    });
+    $('.type3Details').css('display','none');
+}
 
+function removeType3Details() {
+
+}
+
+
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".comment-fields").hide();
+}
+
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().after(content.replace(regexp, new_id));
+}

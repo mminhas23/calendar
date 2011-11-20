@@ -1,1 +1,1 @@
-$('#batches-available').html('<% @courses.each do |course| %><%= check_box_tag "student[course_ids][]", course.id, @student.courses.include?(course) %><%= course.course_code %><br/><% end %>').html();
+$('#courses-available').html('Courses<br/><% @courses.each do |course| %><%= check_box_tag "student[course_ids][]", course.id, @student.courses.include?(course) %><%= course.course_code %><br/><% end %>').html();

@@ -1,0 +1,174 @@
+<LINK REL=StyleSheet HREF="stylesheets/layout.css" TYPE="text/css" MEDIA=screen>
+<script type="text/javascript" src="/javascripts/iscroll.js"></script>
+<script type="text/javascript">
+    var myScroll;
+    var rightScroll;
+    function loaded() {
+        myScroll = new iScroll('course-list');
+        rightScroll = new iScroll('detail-section');
+    }
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+</script>
+
+<style type="text/css" media="all">
+    #months,
+    #weeks {
+        display: -webkit-box;
+        height: 40px;
+        border-bottom:1px solid gray;
+    }
+    #months .filter,
+    #weeks .category {
+        width: 250px;
+        text-align: center;
+        line-height: 20px;
+        background-color: darkgray;
+    color:white;
+    padding-left:20px;
+        font-family: Verdana;
+
+    }
+    #months p,
+    #weeks p {
+        -webkit-box-flex: 1;
+        text-align: center;
+        line-height: 20px;
+        border-right:1px solid gray;
+    }
+    #months p:last-child,
+    #weeks p:last-child{
+        border-right:none;
+    }
+
+
+    .wrapper {
+        position:relative;
+        z-index:1;
+        width:100%;
+        height:100%;
+        overflow:auto;
+}
+    #wrapperx {
+        position:relative;
+        z-index:1;
+}
+</style>
+<div id="calendar">
+    <div id="calendar-content">
+        <div id="left-panel" style="margin-right:20px;">
+            <div class="wrapper">
+            <div id="course-list">
+                <ul>
+                    <li>Short Term Course</li>
+                    <li>International Students</li>
+                    <li>Local Students</li>
+                    <li>Vocational Courses</li>
+                    <li>Managing Self</li>
+                    <li>Managing Teams</li>
+                    <li>Short Term Course</li>
+                    <li>International Students</li>
+                    <li>Local Students</li>
+                    <li>Vocational Courses</li>
+                    <li>Managing Self</li>
+                    <li>Managing Teams</li>
+                    <li>Short Term Course</li>
+                    <li>International Students</li>
+                    <li>Local Students</li>
+                    <li>Vocational Courses</li>
+                    <li>Managing Self</li>
+                    <li>Managing Teams</li>
+                    <li>Short Term Course</li>
+                    <li>International Students</li>
+                    <li>Local Students</li>
+                    <li>Vocational Courses</li>
+                    <li>Managing Self</li>
+                    <li>Managing Teams</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>Short Term Course</li>
+                    <li>International Students</li>
+                    <li>Local Students</li>
+                    <li>Vocational Courses</li>
+                    <li>Managing Self</li>
+                    <li>Managing Teams</li>
+                </ul>
+            </div>
+                </div>
+        </div>
+        <div id="wrapperx">
+       <div id="detail-section">
+            <ul>
+                <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus blandit a a
+                    tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet elit. Fusce vitae semper
+                    dui. Donec diam ante, ultricies et lacinia nec, varius nec justo. Etiam id libero varius dui
+                    rutrum posuere. Vestibulum lobortis bibendum lectus a blandit. Donec mollis dignissim interdum.
+                    Suspendisse et massa nec urna vehicula blandit. Morbi nibh nulla, ullamcorper tristique
+                    vulputate sed, consequat vitae est. Integer imperdiet lacus eget ipsum posuere varius. Praesent
+                    egestas nisl ut arcu hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed
+                    luctus enim consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare.
+                    Ut nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna eu
+                    sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae libero.
+                </li>
+                <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus blandit a a
+                    tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet elit. Fusce vitae semper
+                    dui. Donec diam ante, ultricies et lacinia nec, varius nec justo. Etiam id libero varius dui
+                    rutrum posuere. Vestibulum lobortis bibendum lectus a blandit. Donec mollis dignissim interdum.
+                    Suspendisse et massa nec urna vehicula blandit. Morbi nibh nulla, ullamcorper tristique
+                    vulputate sed, consequat vitae est. Integer imperdiet lacus eget ipsum posuere varius. Praesent
+                    egestas nisl ut arcu hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed
+                    luctus enim consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare.
+                    Ut nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna eu
+                    sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae libero.
+                </li>
+                <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus blandit a a
+                    tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet elit. Fusce vitae semper
+                    dui. Donec diam ante, ultricies et lacinia nec, varius nec justo. Etiam id libero varius dui
+                    rutrum posuere. Vestibulum lobortis bibendum lectus a blandit. Donec mollis dignissim interdum.
+                    Suspendisse et massa nec urna vehicula blandit. Morbi nibh nulla, ullamcorper tristique
+                    vulputate sed, consequat vitae est. Integer imperdiet lacus eget ipsum posuere varius. Praesent
+                    egestas nisl ut arcu hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed
+                    luctus enim consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare.
+                    Ut nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna eu
+                    sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae libero.
+                </li>
+                <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus blandit a a
+                    tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet elit. Fusce vitae semper
+                    dui. Donec diam ante, ultricies et lacinia nec, varius nec justo. Etiam id libero varius dui
+                    rutrum posuere. Vestibulum lobortis bibendum lectus a blandit. Donec mollis dignissim interdum.
+                    Suspendisse et massa nec urna vehicula blandit. Morbi nibh nulla, ullamcorper tristique
+                    vulputate sed, consequat vitae est. Integer imperdiet lacus eget ipsum posuere varius. Praesent
+                    egestas nisl ut arcu hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed
+                    luctus enim consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare.
+                    Ut nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna eu
+                    sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae libero.
+                </li>
+                <li>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac urna vel sem tempus blandit a a
+                    tortor. Nulla purus sapien, interdum ut tristique eu, vehicula sit amet elit. Fusce vitae semper
+                    dui. Donec diam ante, ultricies et lacinia nec, varius nec justo. Etiam id libero varius dui
+                    rutrum posuere. Vestibulum lobortis bibendum lectus a blandit. Donec mollis dignissim interdum.
+                    Suspendisse et massa nec urna vehicula blandit. Morbi nibh nulla, ullamcorper tristique
+                    vulputate sed, consequat vitae est. Integer imperdiet lacus eget ipsum posuere varius. Praesent
+                    egestas nisl ut arcu hendrerit a vestibulum quam gravida. Etiam ullamcorper pulvinar enim, sed
+                    luctus enim consequat nec. Integer eget ipsum quam. Phasellus ornare quam sed mi lacinia ornare.
+                    Ut nulla purus, dictum dictum volutpat non, pellentesque in orci. Phasellus rhoncus, magna eu
+                    sollicitudin dapibus, odio lectus fringilla mauris, nec luctus dolor arcu vitae libero.
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>

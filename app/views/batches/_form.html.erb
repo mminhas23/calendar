@@ -16,6 +16,11 @@
         <%= f.text_field :code %><br/>
     </div>
     <div class="field">
+        <%= f.label :total_seats %><br/>
+        <%= f.text_field :total_seats %><br/>
+    </div>
+    <%= f.text_field :seats_available, :hidden => true%><br/>
+    <div class="field">
         <%= f.label :tutor %><br/>
         <%= collection_select(:batch, :tutor_id, Tutor.all, :id, :firstName, {:include_blank => '--None--' }) %>
     </div>

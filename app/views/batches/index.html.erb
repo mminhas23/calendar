@@ -6,6 +6,8 @@
     <div id="content-body">
         <div id="description-bar">
             <div class="cell-data">Code</div>
+            <div class="cell-data">Total Seats</div>
+            <div class="cell-data">Seats Remaining</div>
             <div class="cell-data">Tutor</div>
             <div class="cell-data">Course</div>
             <div class="cell-data">Actions</div>
@@ -16,6 +18,12 @@
                     <%= batch.code %>
                 </div>
                 <div class="cell-data">
+                    <%= batch.total_seats %>
+                </div>
+                <div class="cell-data">
+                    <%= batch.seats_available %>
+                </div>
+                <div class="cell-data">
                     <%= batch.tutorName%>
                 </div>
                 <div class="cell-data">
@@ -23,7 +31,6 @@
                 </div>
                 <div class="actions">
                     <div class="action-cell">
-                        <p><%= log_pill_button_link_to 'Show', batch %></p>
                         <p><%= edit_pill_button_link_to 'Edit', edit_batch_path(batch) %></p>
                         <p><%= negative_trash_pill_button_link_to 'Delete', batch, :confirm => 'Are you sure?', :method => :delete %></p>
                     </div>
