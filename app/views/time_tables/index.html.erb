@@ -1,6 +1,3 @@
-<div id='content-heading'>
-    <h1>Listing time tables</h1>
-</div>
 <p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
@@ -22,27 +19,25 @@
                 <div class="cell-data">
                     <% time_table.days.each do |day| %>
                         <%= day.day %>
-                        <% day.slots.each do |slot| %>
-                            <%= slot.description %> <br/>
-                        <% end %>
-                    <% end %>
-
                 </div>
-
+                <div class="cell-data">
+                            <% day.slots.each do |slot| %>
+                                <%= slot.description %> <br/>
+                            <% end %>
+                        </div>
+                    <% end %>
                 <div class="actions">
                     <div class="action-cell">
-                        <p><%= log_pill_button_link_to 'Show', time_table %></p>
-
-                        <p><%= edit_pill_button_link_to 'Edit', edit_time_table_path(time_table) %></p>
-
-                        <p><%= negative_trash_pill_button_link_to 'Delete', time_table, :confirm => 'Are you sure?', :method => :delete %></p>
+                        <%= link_to 'Show', time_table %> |
+                        <%= link_to 'Edit', edit_time_table_path(time_table) %> | 
+                        <%= link_to 'Delete', time_table, :confirm => 'Are you sure?', :method => :delete %>
                     </div>
                 </div>
             </div>
         <% end %>
     </div>
     <div id="action-bar">
-        <%= add_pill_button_link_to 'Add New', new_time_table_path %>
+        <%= link_to 'Add New Timetable', new_time_table_path %>
     </div>
 </div>
 

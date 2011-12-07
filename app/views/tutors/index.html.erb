@@ -1,6 +1,3 @@
-<div id='content-heading'>
-    <h1>Listing Tutors</h1>
-</div>
 <p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
@@ -31,17 +28,15 @@
                 </div>
                 <div class="actions">
                     <div class="action-cell">
-                        <p><%= log_pill_button_link_to 'Show', tutor %></p>
-
-                        <p><%= edit_pill_button_link_to 'Edit', edit_tutor_path(tutor) %></p>
-
-                        <p><%= negative_trash_pill_button_link_to 'Delete',tutor, :confirm => 'Are you sure?', :method => :delete %></p>
+                        <%= link_to 'View', tutor %> |
+                        <%= link_to 'Edit', edit_tutor_path(tutor) %> |
+                        <%= link_to 'Delete',tutor, :confirm => 'Are you sure?', :method => :delete %>
                     </div>
                 </div>
             </div>
         <% end %>
     </div>
     <div id="action-bar">
-        <%= add_pill_button_link_to 'Add New', new_tutor_path %>
+        <%= link_to 'Add New Tutor', new_tutor_path %>
     </div>
 </div>

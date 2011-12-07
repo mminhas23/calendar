@@ -4,6 +4,8 @@ class Student < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 
+  validates_presence_of :first_name, :last_name, :email, :contact_number, :dob, :address
+
   def course_categories
     categories = Array.new
     if !self.courses.empty?

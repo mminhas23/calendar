@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925013059) do
+ActiveRecord::Schema.define(:version => 20111207020543) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20110925013059) do
     t.string   "company_address"
     t.string   "company_contact_name"
     t.string   "company_contact_number"
-    t.string   "paymnet_method"
+    t.string   "payment_method"
     t.boolean  "fee_received"
     t.boolean  "fee_processed"
     t.boolean  "docs_received"

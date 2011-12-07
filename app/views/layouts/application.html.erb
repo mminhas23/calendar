@@ -13,15 +13,43 @@
         <a id="home-link" href="http://localhost:3000"><h1>Online Calendar</h1></a>
 
         <a id="root-link">
-            <% if user_signed_in? %>
-                Signed in as <%= current_user.email %>. Not you? <%= link_to " Sign out", destroy_user_session_path %>
+            <% if user_signed_in? %>Signed in as <%= current_user.email %> | Not
+                you?&nbsp; <%= link_to " Sign out", destroy_user_session_path %>
             <% else %>
-                <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
+                <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
             <% end %>
         </a>
     </div>
     <div class="entry">
-        <%= yield %>
+        <% if notice -%>
+            <p class="message"><%= notice %></p>
+        <% end %>
+        <% if alert -%>
+            <p class="alert"><%= alert %></p>
+        <% end%>
+        <% if user_signed_in? -%>
+            <div class="sidebar">
+                <p><%= link_to "Course Categories", categories_path %></p>
+
+                <p><%= link_to "Tutors", tutors_path %></p>
+
+                <p><%= link_to "Batches", batches_path %></p>
+
+                <p><%= link_to "Courses", courses_path %></p>
+
+                <p><%= link_to "Students", students_path %></p>
+
+                <p><%= link_to "Time Tables", time_tables_path %></p>
+
+                <p><%= link_to "Batch Sessions", descriptions_path %></p>
+                <% if can? :manage, @user %>
+                    <%= link_to "View Users", user_index_path %>
+                <% end %>
+            </div>
+        <% end -%>
+        <div class="text">
+            <%= yield %>
+        </div>
     </div>
 </div>
 

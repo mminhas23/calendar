@@ -20,6 +20,6 @@ Calendar::Application.routes.draw do
   resources :slots
   resources :descriptions
 
-  root :to => "home#index"
+  root :to =>"home#index"
   get "home/index"
 end

@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
-    respond_with(@category)
+    respond_with(@category,:location => categories_path)
   end
 
   def update
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
     if @category.update_attributes(params[:category])
       flash[:notice] = "Successfully updated category"
     end
-    respond_with(@category)
+    respond_with(@category,:location => categories_path)
   end
 
   def destroy

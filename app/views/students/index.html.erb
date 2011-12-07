@@ -1,6 +1,4 @@
-<div id='content-heading'>
-        <h1>Listing Students</h1>
-</div>
+
 <p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
@@ -29,24 +27,24 @@
                 </div>
                 <div class="cell-data">
                     <% student.courses.each do |course| %>
-                        <%= course.course_code%><br/>
+                        <%= course.course_code %><br/>
                     <% end %>
                 </div>
                 <div class="cell-data">
                     <% student.batches.each do |batch| %>
-                        <%= batch.code%><br/>
+                        <%= batch.code %><br/>
                     <% end %>
                 </div>
-                <div class="actions">
-                        <p><%= add_pill_button_link_to 'Batch', assign_student_path(student)%></p>
-                        <p><%= log_pill_button_link_to 'Show', student %></p>
-                        <p><%= edit_pill_button_link_to 'Edit', edit_student_path(student) %></p>
-                        <p><%= negative_trash_pill_button_link_to 'Delete', student, :confirm => 'Are you sure?', :method => :delete %></p>
+                <div class="action-cell">
+                    <%= link_to "Add", assign_student_path(student)%> |
+                    <%= link_to "Edit", edit_student_path(student)%> | 
+                    <%= link_to "View", student%> |
+                    <%= link_to "Delete", student, :confirm => 'Are you sure?', :method => :delete %>
                 </div>
             </div>
         <% end %>
     </div>
     <div id="action-bar">
-        <%= add_pill_button_link_to 'Add New Student', new_student_path %>
+        <%= link_to 'Add New Student', new_student_path %>
     </div>
 </div>
