@@ -10,9 +10,15 @@ gem 'css3buttons', '0.9.5'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'devise'
 gem 'cancan'
+gem 'rspec-rails', :group =>[:development, :test]
 
-# Use unicorn as the web server
-# gem 'unicorn'
+group :test do
+  gem 'cucumber-rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+end
 
 # Deploy with Capistrano
 # gem 'capistrano'
