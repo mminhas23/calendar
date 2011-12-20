@@ -1,26 +1,24 @@
-<div id="login" class="login">     
-    <p class="message">Sign up for this site</p>
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-        <div id="login_error">
-            <%= devise_error_messages! %>
-        </div>
-        <p><%= f.label :email %>
-            <%= f.email_field :email %></p>
+<div id="login" class="login">
+  <p class="message">Sign up for this site</p>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <p><%= f.label :email %>
+        <%= f.email_field :email %></p>
 
-        <p><%= f.label :password %>
-            <%= f.password_field :password %></p>
+      <p><%= f.label :password %>
+        <%= f.password_field :password %></p>
 
-        <p><%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation %></p>
+      <p><%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %></p>
 
-        <p>
-            <%= f.label :role %>
-            <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-        </p>
+      <p>
+        <%= f.label :role %>
+        <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+      </p>
 
-        <p class="submit"><%= f.submit "Sign up" %></p>
-    <% end %>
-    <p id="nav">
-        <%= render :partial => "users/shared/links" %>
-    </p>
+      <p class="submit"><%= f.submit "Sign up" %></p>
+  <% end %>
+  <p id="nav">
+    <%= render :partial => "users/shared/links" %>
+  </p>
 </div>

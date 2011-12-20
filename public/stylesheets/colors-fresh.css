@@ -177,7 +177,7 @@ strong .post-com-count span {
     border-top-color: #dfdfdf;
 }
 
-.error, .login #login_error {
+.error, .login #login_error, #error_explanation {
     background-color: #ffebe8;
     border-color: #c00;
 }

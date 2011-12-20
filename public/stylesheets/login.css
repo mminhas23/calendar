@@ -102,6 +102,7 @@ h1 a {
     margin: 7em auto;
 }
 
+#error_explanation,
 #login_error, .message {
     margin: 0 0 16px 8px;
     border-width: 1px;
