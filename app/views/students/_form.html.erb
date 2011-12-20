@@ -57,7 +57,7 @@
     <div class="field" style="border: 1px solid; padding: 5px 5px 5px 5px;">
         <label>Enrollment Details</label> <br/><br/>
           <div class="field">
-            <%= f.label :payment_method, "Payment Method" %><br/>
+            <%= f.label :payment_method, "Payment Methods" %>
             <% PaymentMethod.all.each do |payment| %>
                 <%= check_box_tag "payment_methods[]",payment.description%> <%= payment.description %>
              <% end %>
@@ -65,8 +65,12 @@
             <div class="field">
              <%= f.check_box :fee_received %>
              <%= f.label :fee_received, "Fees Received" %><br/>
+              <%= f.check_box :fee_processed %>
+             <%= f.label :fee_received, "Fees Processed" %><br/>
              <%= f.check_box :docs_received %>
              <%= f.label :docs_received, "Documents Received" %><br/>
+              <%= f.check_box :docs_processed %>
+             <%= f.label :docs_received, "Documents Processed" %><br/>
           </div>
     </div>
 

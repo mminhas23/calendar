@@ -1,4 +1,3 @@
-require 'active_support/secure_random'
 class StudentsController < ApplicationController
   respond_to :html, :xml
   respond_to :js, :only => [ :courses, :batches]
@@ -24,11 +23,8 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.new(params[:student])
-    @student.identifier = ActiveSupport::SecureRandom.urlsafe_base64(8) 
-    batches = Batch.where(:id => params[:student][:batch_ids])
-    for batch in batches
-        Batch.update(batch.id,:seats_available => batch.seats_available - 1)
-    end
+    @student.payment_methods(params[:payment_methods])
+    @student.update_batches(params[:student][:batch_ids])
     if @student.save
       flash[:notice] = "Successfully created Student"
     end

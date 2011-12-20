@@ -13,4 +13,14 @@ FactoryGirl.define do
     total_seats 100
     association :category
   end
+
+  factory :student do
+    first_name 'Manpreet'
+    last_name 'Minhas'
+    email 'mminhas23@gmail.com'
+    contact_number '0400 689 950'
+    dob '1979-12-23'
+    address '7 Mayesbrook Road'
+    payment_method 'VISA'
+  end
 end
