@@ -1,3 +1,4 @@
+require 'date'
 FactoryGirl.define do
 
   factory :category do
@@ -8,7 +9,7 @@ FactoryGirl.define do
   factory :course do
     name 'Foreign Language'
     course_code  'CR-FLG-01'
-    start_date '2011-12-12'
+    start_date {DateTime.now.to_date}
     end_date '2012-12-12'
     total_seats 100
     association :category
@@ -23,4 +24,11 @@ FactoryGirl.define do
     address '7 Mayesbrook Road'
     payment_method 'VISA'
   end
+
+  factory :batch do
+    code 'BT-FLG-01'
+    total_seats 20
+    association :course
+  end
+
 end

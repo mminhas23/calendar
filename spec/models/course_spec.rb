@@ -23,7 +23,6 @@ describe Course do
   end
 
   it " end date should not be before course start date" do
-    course = FactoryGirl.build(:course, :end_date=>'2011-12-10')
-    course.should be_invalid
+    FactoryGirl.build(:course, :end_date=>'2011-12-10').should be_invalid
   end
 end

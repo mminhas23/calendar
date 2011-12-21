@@ -35,7 +35,6 @@
         <%= f.label :total_seats %><br />
         <%= f.text_field :total_seats %>
    </div>
-
     <div class="field">
         <%= f.label :category, 'Course Category'%><br />
         <%= collection_select(:course, :category_id, Category.all, :id, :code) %>
