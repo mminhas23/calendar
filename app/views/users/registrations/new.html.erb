@@ -11,10 +11,10 @@
       <p><%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %></p>
 
-      <p>
-        <%= f.label :role %>
-        <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-      </p>
+      <!--<p>-->
+        <!--<%= f.label :role %>-->
+        <!--<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>-->
+      <!--</p>-->
 
       <p class="submit"><%= f.submit "Sign up" %></p>
   <% end %>
