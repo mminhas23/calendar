@@ -26,6 +26,7 @@ class Student < ActiveRecord::Base
     for batch in Batch.where(:id => batch_ids)
         Batch.update(batch.id,:seats_available => batch.seats_available - 1)
     end
+    self.batches = batch_ids
   end
 
   def course_categories

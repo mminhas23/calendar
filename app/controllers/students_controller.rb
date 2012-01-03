@@ -44,6 +44,7 @@ class StudentsController < ApplicationController
     params[:student][:batch_ids] ||= []
 
     @student = Student.find(params[:id])
+    @student.payment_methods(params[:payment_methods])
     
     old_batches = @student.batches.sort
     current_batches = Batch.where(:id => params[:student][:batch_ids]).to_a.sort

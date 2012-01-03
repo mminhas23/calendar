@@ -1,0 +1,26 @@
+<h1>Enrolling for <%= @course.name %> [ <%= @course.course_code %> ]</h1>
+
+<p>
+    <b>Start Date</b>
+    <%= @course.start_date %>
+</p>
+<p>
+    <b>End Date</b>
+    <%= @course.end_date %>
+</p>
+<p>
+    <b>Total Seats</b>
+    <%= @course.total_seats %>
+</p>
+<p>
+    <b>Category</b>
+    <%= @course.category.code %>
+</p>
+
+<%= radio_button_tag :course_student_type ,"New"%>
+<%= label_tag :course_student_type, "New Student" %>
+<%= radio_button_tag :course_student_type ,"Existing" %>
+<%= label_tag :course_student_type, "Existing Student" %>
+
+<br/>
+<%= link_to 'Back', courses_path %>

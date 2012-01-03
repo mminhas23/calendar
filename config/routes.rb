@@ -9,7 +9,9 @@ Calendar::Application.routes.draw do
   resources :home, :only => :index
   resources :batches
   resources :categories
-  resources :courses
+  resources :courses do
+    get 'enroll', :on => :member
+  end
   resources :students do
     resources :comments
     get 'assign', :on => :member

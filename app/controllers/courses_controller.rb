@@ -39,6 +39,12 @@ class CoursesController < ApplicationController
     respond_with(@course,:location=> courses_path)
   end
 
+  def enroll
+    @course = Course.find(params[:id])
+    @student = Student.new
+    respond_with(@course)
+  end
+
   def destroy
     @course = Course.find(params[:id])
     @course.destroy

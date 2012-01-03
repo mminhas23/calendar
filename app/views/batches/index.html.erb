@@ -12,7 +12,7 @@
         <% @batches.each do |batch| %>
             <div class="data-bar">
                 <div class="cell-data">
-                    <%= batch.code %>
+                    <%= link_to batch.code, batch_path(batch) %>
                 </div>
                 <div class="cell-data">
                     <%= batch.total_seats %>

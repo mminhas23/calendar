@@ -14,6 +14,14 @@
   <%= @batch.tutorName%>
 </p>
 
+<p>
+  <b>Students:</b>
+  <% @batch.students.each do |student|%>
+    <%= student.first_name %>
+    <%= student.last_name %>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_batch_path(@batch) %> |
 <%= link_to 'Back', batches_path %>

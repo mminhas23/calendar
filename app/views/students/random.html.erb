@@ -1,0 +1,33 @@
+<div id="details-container">
+        <div id="course-categories">
+            <%=f.label :categories %><br/>
+            <% Category.all.each do |category| %>
+                <% if @categories!=nil %>
+                    <%= check_box_tag "categories[]",category.id, @categories.include?(category)%>
+                 <% else %>
+                    <%= check_box_tag "categories[]",category.id%>
+                 <% end %>
+                <%= category.description %><br/>
+            <% end %>
+        </div>
+        <div id="courses-available">
+            <%=f.label :courses %><br/>
+            <% @student.courses.each do |course| %>
+                <%= check_box_tag "student[course_ids][]",course.id,  @student.courses.include?(course) %>
+                <%= course.course_code %><br/>
+            <% end %>
+        </div>
+        <div id="batches-available">
+           <%=f.label :batches %><br/>
+            <% @student.batches.each do |batch| %>
+                <%= check_box_tag "student[batch_ids][]",batch.id,  @student.batches.include?(batch) %>
+                <%= batch.code %>(Seats Available: <%=batch.seats_available%>)<br/>
+            <% end %>
+        </div>
+    </div>
+    <div class="comments-container">
+         <% f.fields_for :comments do |builder| %>
+            <%= render "comment_fields", :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add Comments", f, :comments %>
+    </div>

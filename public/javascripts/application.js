@@ -1,7 +1,5 @@
 $(function()
 {
-    $("ul.tabs").tabs("div.panes > div");
-    
 	$('.date-pick').datePicker()
 	$('#course_start_date').bind(
 		'dpClosed',
