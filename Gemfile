@@ -5,8 +5,7 @@ gem 'rails', '3.0.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
-gem 'css3buttons', '0.9.5'
+gem  'css3buttons', '0.9.5'
 gem 'jquery-rails', '>= 1.0.12'
 gem 'devise'
 gem 'cancan'
@@ -18,6 +17,14 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+end
+
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
 end
 
 # Deploy with Capistrano
