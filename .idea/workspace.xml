@@ -70,16 +70,34 @@
       <file leaf-file-name="student.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/student.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="47" column="4" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0990991">
+            <state line="7" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="batches_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/batches_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="34" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="batch.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/batch.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="148" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.1921875">
               <folding />
             </state>
           </provider>
@@ -145,12 +163,12 @@
         <option value="$PROJECT_DIR$/app/views/courses/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/batches/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/course.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/batches_controller.rb" />
-        <option value="$PROJECT_DIR$/app/models/batch.rb" />
-        <option value="$PROJECT_DIR$/app/models/student.rb" />
         <option value="$PROJECT_DIR$/app/controllers/courses_controller.rb" />
         <option value="$PROJECT_DIR$/spec/models/student_spec.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/models/student.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/batches_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/batch.rb" />
       </list>
     </option>
   </component>
@@ -703,13 +721,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/courses/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="35" vertical-scroll-proportion="6.25">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spec/models/student_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="78" column="179" selection-start="3091" selection-end="3091" vertical-scroll-proportion="0.6887836">
@@ -759,27 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/batch.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="184" selection-end="184" vertical-scroll-proportion="0.13513513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="265" selection-end="265" vertical-scroll-proportion="0.18376723">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/student.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -810,7 +800,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0990991">
+        <state line="7" column="10" selection-start="150" selection-end="150" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/student.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="4" selection-start="1444" selection-end="1444" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="12" selection-start="1189" selection-end="1189" vertical-scroll-proportion="0.330855">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/batches_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="34" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/batch.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="148" selection-start="1324" selection-end="1324" vertical-scroll-proportion="0.1921875">
           <folding />
         </state>
       </provider>

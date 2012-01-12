@@ -8,8 +8,6 @@ class Batch < ActiveRecord::Base
   validates_presence_of :code, :total_seats
 
   validate :validate_seat_count
-  after_destroy :update_student_status
-
 
   def tutorName
     if self.tutor!=nil
@@ -49,12 +47,14 @@ class Batch < ActiveRecord::Base
     end
   end
 
-  def update_student_status
+  def update_student_statuses
     self.students ||=[]
     self.students.each do |student|
-      student.update_status
+      status = student.batches.size>1 ? 'CURRENT': 'UNASSIGNED'
+      student.update_attributes(:status=> status)
+      self.course.students.delete(student)
     end
-    self.course.seats_remaining += self.total_seats
+    self.course.seats_remaining += total_seats
     self.course.save
   end
 
