@@ -24,6 +24,7 @@
         <%= f.label :total_seats %><br />
         <%= f.text_field :total_seats %>
    </div>
+    <%= f.text_field :seats_remaining, :hidden => true%><br/>
     <div class="field">
         <%= f.label :category, 'Course Category'%><br />
         <%= collection_select(:course, :category_id, Category.all, :id, :code) %>

@@ -1,3 +1,4 @@
+<p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
         <div id="description-bar">
@@ -6,6 +7,7 @@
             <div class="cell-data">Start Date</div>
             <div class="cell-data">End Date</div>
             <div class="cell-data">Total Seats</div>
+            <div class="cell-data">Seats Remaining</div>
             <div class="cell-data">Course Category</div>
             <div class="cell-data"> Actions</div>
         </div>
@@ -27,13 +29,17 @@
                     <%= course.total_seats %>
                 </div>
                 <div class="cell-data">
+                    <%= course.seats_remaining %>
+                </div>
+
+                <div class="cell-data">
                     <%= course.category.code %>
                 </div>
 
                 <div class="actions">
                     <div class="action-cell">
                         <%= link_to 'Edit', edit_course_path(course) %> |
-                        <%= link_to 'Enroll', enroll_course_path(course) %> |
+                        <%= link_to 'Batches', batches_course_path(course) %> |
                         <%= link_to 'Delete',course, :confirm => 'Are you sure?', :method => :delete %>
                     </div>
                 </div>

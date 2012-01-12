@@ -11,6 +11,9 @@ Calendar::Application.routes.draw do
   resources :categories
   resources :courses do
     get 'enroll', :on => :member
+    get 'assign', :on => :member
+    get 'batches', :on => :member
+    post 'student', :on => :member
   end
   resources :students do
     resources :comments

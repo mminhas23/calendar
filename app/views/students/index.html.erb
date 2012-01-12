@@ -1,5 +1,3 @@
-
-<p class="notice"><%= notice %></p>
 <div id='content'>
     <div id="content-body">
         <div id="description-bar">
@@ -7,6 +5,7 @@
             <div class="cell-data">DOB</div>
             <div class="cell-data">Adress</div>
             <div class="cell-data">Email</div>
+            <div class="cell-data">Status</div>
             <div class="cell-data">Courses</div>
             <div class="cell-data">Batches</div>
             <div class="cell-data">Actions</div>
@@ -24,6 +23,9 @@
                 </div>
                 <div class="cell-data">
                     <%= student.email %>
+                </div>
+                <div class="cell-data">
+                    <%= student.status %>
                 </div>
                 <div class="cell-data">
                     <% student.courses.each do |course| %>

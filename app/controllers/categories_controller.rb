@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
-    respond_with(@category,:location => categories_path)
+    respond_with(@category)
   end
 
   def update

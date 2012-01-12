@@ -24,7 +24,6 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(params[:student])
     @student.payment_methods(params[:payment_methods])
-    @student.update_batches(params[:student][:batch_ids])
     if @student.save
       flash[:notice] = "Successfully created Student"
     end
@@ -33,9 +32,6 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
-    @categories = Category.where(:id => @student.course_categories)
-    @coursesAvailable = Course.where(:category_id => @categories)
-    @batchesAvailable = Batch.where(:course_id => @student.courses)
     respond_with(@student)
   end
 

@@ -1,0 +1,41 @@
+<p class="notice"><%= notice %></p>
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Code</div>
+            <div class="cell-data">Total Seats</div>
+            <div class="cell-data">Seats Remaining</div>
+            <div class="cell-data">Tutor</div>
+            <div class="cell-data">Course</div>
+            <div class="cell-data">Actions</div>
+        </div>
+        <% @batches.each do |batch| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= link_to batch.code, batch_path(batch) %>
+                </div>
+                <div class="cell-data">
+                    <%= batch.total_seats %>
+                </div>
+                <div class="cell-data">
+                    <%= batch.seats_available %>
+                </div>
+                <div class="cell-data">
+                    <%= batch.tutorName%>
+                </div>
+                <div class="cell-data">
+                    <%= batch.courseCode%>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <%= link_to 'Enroll', enroll_course_path(:batch=>batch) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+    <div id="action-bar">
+      <%= link_to 'Back', courses_path %> |
+      <%= link_to 'Add New Batch', new_batch_path %>
+    </div>
+</div>

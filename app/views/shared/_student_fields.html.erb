@@ -1,0 +1,90 @@
+<div class="field">
+  <%= f.label :first_name %>
+  <br/>
+  <%= f.text_field :first_name %>
+  <br/>
+</div>
+<div class="field">
+  <%= f.label :last_name %>
+  <br/>
+  <%= f.text_field :last_name %>
+  <br/>
+</div>
+<div class="field">
+  <%= f.label :email %>
+  <br/>
+  <%= f.text_field :email %>
+  <br/>
+</div>
+<div class="field">
+  <%= f.label :contact_number %>
+  <br/>
+  <%= f.text_field :contact_number %>
+  <br/>
+</div>
+<div class="field">
+  <%= f.label :dob %>
+  <br/>
+  <%= f.text_field :dob, :class => "date-pick" %> <br/>
+</div>
+<br/>
+<div class="field">
+  <%= f.label :address %>
+  <br/>
+  <%= f.text_area :address, :rows=>3 %>
+  <br/>
+</div>
+<br/>
+<div class="field">
+  <%= f.label :status %>
+  <%= collection_select(:student, :status, StudentStatus.all, :code, :code) %>
+  <br/>
+</div>
+
+<div class="field">
+  <%= f.label :student_type %>
+  <%= collection_select(:student, :student_type, StudentType.all, :description, :description) %>
+  <br/>
+</div>
+
+<div class="type3Details">
+  <%= f.label :company_name %>
+  <%= f.text_field :company_name %>
+  <br/>
+  <%= f.label :company_address %>
+  <%= f.text_field :company_address %>
+  <br/>
+  <%= f.label :company_contact_name %>
+  <%= f.text_field :company_contact_name %>
+  <br/>
+  <%= f.label :company_contact_number %>
+  <%= f.text_field :company_contact_number %>
+  <br/>
+</div>
+
+<div class="field" style="border: 1px solid; padding: 5px 5px 5px 5px;">
+  <label>Enrollment Details</label> <br/><br/>
+
+  <div class="field">
+    <%= f.label :payment_method, "Payment Methods" %>
+    <% PaymentMethod.all.each do |payment| %>
+        <%= check_box_tag "payment_methods[]", payment.description %> <%= payment.description %>
+    <% end %>
+  </div>
+  <div class="field">
+    <%= f.check_box :fee_received %>
+    <%= f.label :fee_received, "Fees Received" %>
+    <br/>
+    <%= f.check_box :fee_processed %>
+    <%= f.label :fee_received, "Fees Processed" %>
+    <br/>
+    <%= f.check_box :docs_received %>
+    <%= f.label :docs_received, "Documents Received" %>
+    <br/>
+    <%= f.check_box :docs_processed %>
+    <%= f.label :docs_received, "Documents Processed" %>
+    <br/>
+  </div>
+</div>
+<%= f.text_field :enrolled_by, :value => current_user.email, :hidden => true %>
+<br/>

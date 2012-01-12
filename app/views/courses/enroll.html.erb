@@ -1,26 +1,20 @@
-<h1>Enrolling for <%= @course.name %> [ <%= @course.course_code %> ]</h1>
-
+<h1>Enrolling for <%= @course.name %> [ <%= @course.course_code %> ] in Batch <%= @batch.code %></h1>
 <p>
-    <b>Start Date</b>
-    <%= @course.start_date %>
-</p>
-<p>
-    <b>End Date</b>
-    <%= @course.end_date %>
-</p>
-<p>
-    <b>Total Seats</b>
-    <%= @course.total_seats %>
-</p>
-<p>
-    <b>Category</b>
-    <%= @course.category.code %>
+    <b>Total Seats Remaining in Batch</b>
+    <%= @batch.seats_available %>
 </p>
 
-<%= radio_button_tag :course_student_type ,"New"%>
+<%= radio_button_tag :course_student_type ,"new"%>
 <%= label_tag :course_student_type, "New Student" %>
-<%= radio_button_tag :course_student_type ,"Existing" %>
+<%= radio_button_tag :course_student_type ,"existing" %>
 <%= label_tag :course_student_type, "Existing Student" %>
+
+<div id ="course_student_details" style="display: none;">
+  <%= render :partial=> 'student', :locals => {:student => @student}%>
+</div>
+<div id ="existing_students" style="display: none;">
+  <%= render 'existing', :target=>@students %>
+</div>
 
 <br/>
 <%= link_to 'Back', courses_path %>

@@ -10,6 +10,9 @@ class Student < ActiveRecord::Base
   validates_presence_of :first_name, :last_name, :email, :contact_number, :dob, :address, :payment_method
   validates_presence_of  :company_name,  :company_address, :company_contact_name, :company_contact_number, :if=>:type3?
 
+  scope :with_status, lambda {|status| where("status = ?", status)}
+  scope :current_unassigned, lambda { where("status IN ('CURRENT', 'UNASSIGNED')") }
+
   def assign_unique_identifier
     self.identifier = ActiveSupport::SecureRandom.urlsafe_base64(8)
   end
@@ -22,20 +25,30 @@ class Student < ActiveRecord::Base
       self.payment_method = options.join(",") unless options.nil?
   end
 
-  def update_batches batch_ids
-    for batch in Batch.where(:id => batch_ids)
-        Batch.update(batch.id,:seats_available => batch.seats_available - 1)
-    end
-    self.batches = batch_ids
+  def assign_batch batch
+    self.batches ||=[]
+    self.batches.push batch
+    batch.update_attributes(:seats_available => batch.seats_available-1)
+    self.status = 'CURRENT'
   end
 
-  def course_categories
-    categories = Array.new
-    if !self.courses.empty?
-      self.courses.each do |course|
-        categories.push(course.category_id)
-      end
-    end
-    categories
+  def assign_course course
+    self.courses ||=[]
+    self.courses.push course
+  end
+
+  def assign course, batch
+    assign_batch batch
+    assign_course course
+    self
+  end
+
+  def withdraw_from batch
+    self.batches.delete(batch)
+    update_status
+  end
+
+  def update_status
+    self.status = self.batches.empty? ?  'UNASSIGNED' : 'CURRENT'
   end
 end

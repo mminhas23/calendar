@@ -19,7 +19,6 @@ class BatchesController < ApplicationController
   end
 
   def create
-    params[:batch][:seats_available] = params[:batch][:total_seats]
     @batch = Batch.new(params[:batch])
     if @batch.save
       flash[:notice] = "Successfully created Batch"
@@ -34,22 +33,11 @@ class BatchesController < ApplicationController
 
   def update
     @batch = Batch.find(params[:id])
-
-    originalTotalSeats = @batch.total_seats
-    originalAvailableSeats = @batch.seats_available
-    currentTotalSeats = params[:batch][:total_seats].to_i
-    if originalTotalSeats > currentTotalSeats
-      update = originalTotalSeats - currentTotalSeats
-      params[:batch][:seats_available] = originalAvailableSeats - update
-    elsif originalTotalSeats < currentTotalSeats
-      update = currentTotalSeats - originalTotalSeats
-      params[:batch][:seats_available] = originalAvailableSeats + update
-    else
-      params[:batch][:seats_available] = currentTotalSeats
-    end
-    
-    if @batch.update_attributes(params[:batch])
-      flash[:notice] = "Successfully updated Batch"
+    params[:batch][:seats_available] = @batch.update_course_seats(params[:batch][:total_seats].to_i)
+    if @batch.errors.empty?
+      if @batch.update_attributes(params[:batch])
+        flash[:notice] = "Successfully updated Batch"
+      end
     end
     respond_with(@batch, :location=> batches_path)
   end

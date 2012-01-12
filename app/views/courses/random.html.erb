@@ -1,0 +1,78 @@
+<%= form_tag({:controller => "courses", :action => 'student'}, :method => "post") do %>
+    <div class="field">
+      First name<br/>
+      <%= text_field_tag :first_name %>
+      <br/>
+    </div>
+    <div class="field">
+      Last name<br/>
+      <%= text_field_tag :last_name %>
+      <br/>
+    </div>
+    <div class="field">
+      Email<br/>
+      <%= text_field_tag :email %>
+      <br/>
+    </div>
+    <div class="field">
+      Contact number<br/>
+      <%= text_field_tag :contact_number %>
+      <br/>
+    </div>
+    <div class="field">
+      Date of birth<br/>
+      <%= text_field_tag "dob","", {:class => "date-pick"} %> <br/>
+    </div>
+    <br/>
+    <div class="field">
+      Address<br/>
+      <%= text_area_tag "address", "", {:rows=>3} %>
+      <br/>
+    </div>
+    <br/>
+    <div class="field">
+      Status :<%= select_tag("status", options_from_collection_for_select(StudentStatus.all, "code", "code"))%>
+      <br/>
+    </div>
+
+    <div class="field">
+      Student type : <%= select_tag("student_type",options_from_collection_for_select(StudentType.all, "description", "description")) %>
+      <br/>
+    </div>
+
+    <div class="type3Details">
+      Company name <%= text_field_tag :company_name %>
+      <br/>
+      Company address <%= text_field_tag :company_address %>
+      <br/>
+      Company contact name <%= text_field_tag :company_contact_name %>
+      <br/>
+      Company contact number <%= text_field_tag :company_contact_number %>
+      <br/>
+    </div>
+
+    <div class="field" style="border: 1px solid; padding: 5px 5px 5px 5px;">
+      <label>Enrollment Details</label> <br/><br/>
+
+      <div class="field">
+        Payment Methods <% PaymentMethod.all.each do |payment| %>
+            <%= check_box_tag "payment_methods[]", payment.description %> <%= payment.description %>
+        <% end %>
+      </div>
+      <div class="field">
+        <%= check_box_tag "fee_received" %>Fees Received
+        <br/>
+        <%= check_box_tag "fee_processed" %> Fees Processed
+        <br/>
+        <%= check_box_tag "docs_received" %> Documents Received
+        <br/>
+        <%= check_box_tag "docs_processed" %> Documents Processed
+        <br/>
+      </div>
+    </div>
+    <%= text_field_tag "enrolled_by", current_user.email, {:hidden => true} %>
+    <br/>
+    <p>
+      <%= submit_tag 'Submit' %>
+    </p>
+<% end %>

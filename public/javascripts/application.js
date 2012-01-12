@@ -49,6 +49,16 @@ $(function()
         }
     });
 
+    $('#course_student_type_new').live('click', function(){
+        $('#course_student_details').css('display', 'block');
+        $('#existing_students').css('display', 'none');
+    });
+
+    $('#course_student_type_existing').live('click', function(){
+        $('#existing_students').css('display','block');
+        $('#course_student_details').css('display','none');
+    });
+
     $('#student_student_type').change(function(){
         type = $(this).val();
         if(type =='Type_3'){

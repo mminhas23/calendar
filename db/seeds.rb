@@ -10,3 +10,4 @@ slots = Description.create([{:description => '8AM to 10AM'}, {:description => '1
 week_days = WeekDay.create([{:name => 'Monday'}, {:name => 'Tuesday'}, {:name => 'Wednesday'}, {:name => 'Thursday'}, {:name => 'Friday'}, {:name => 'Saturday'}, {:name => 'Sunday'}])
 payment_methods = PaymentMethod.create([{:description => 'Visa'},{:description => 'Mastercard'},{:description => 'Cash'}, {:description => 'Cheque'}, {:description => 'Direct Debit'}, {:description => 'Draft'},{:description => 'Paypal'}])
 student_types = StudentType.create([{:description => 'International'}, {:description => 'Type_1'}, {:description => 'Type_3'}])
+student_statuses = StudentStatus.create([{:code => 'UNASSIGNED',:description => 'Unassigned Student'}, {:code => 'CURRENT',:description => 'Current Student'}, {:code => 'ALUMNI',:description => 'Alumni Student'}, {:code => 'WITHDRAWN',:description => 'Withdrawn Student'}])

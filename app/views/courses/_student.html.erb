@@ -1,0 +1,9 @@
+<%= form_for(@student, :url => student_course_path) do |f| %>
+    <%= render 'shared/errors', :target=>student %>
+    <%= render 'shared/student_fields', :f=>f %>
+    <%= text_field_tag "batch_id", @batch.id, {:hidden => true} %>
+    <div class="actions">
+    <%= f.submit %>
+    </div>
+<% end %>
+

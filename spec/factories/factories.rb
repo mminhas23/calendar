@@ -12,7 +12,8 @@ FactoryGirl.define do
     start_date {DateTime.now.to_date}
     end_date '2012-12-12'
     total_seats 100
-    association :category
+    seats_remaining 100
+    association :category, :method => :build
   end
 
   factory :student do
@@ -23,12 +24,14 @@ FactoryGirl.define do
     dob '1979-12-23'
     address '7 Mayesbrook Road'
     payment_method 'VISA'
+    status 'UNASSIGNED'
   end
 
   factory :batch do
     code 'BT-FLG-01'
     total_seats 20
-    association :course
+    seats_available 20
+    association :course, :method => :build
   end
 
 end

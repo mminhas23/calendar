@@ -1,0 +1,30 @@
+<div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">Name</div>
+            <div class="cell-data">DOB</div>
+            <div class="cell-data">Address</div>
+            <div class="cell-data">Email</div>
+            <div class="cell-data">Actions</div>
+        </div>
+        <% @students.each do |student| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= student.first_name %>
+                </div>
+                <div class="cell-data">
+                    <%= student.dob %>
+                </div>
+                <div class="cell-data">
+                    <%= student.address %>
+                </div>
+                <div class="cell-data">
+                    <%= student.email %>
+                </div>
+                <div class="action-cell">
+                    <%= link_to "Enroll", assign_course_path(:student=>student, :batch=>@batch)%>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
