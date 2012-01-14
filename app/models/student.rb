@@ -45,7 +45,10 @@ class Student < ActiveRecord::Base
 
   def withdraw_from batch
     self.batches.delete(batch)
+    self.courses.delete(batch.course)
     update_status
+    batch.seats_available +=1
+    self.save!
   end
 
   def update_status

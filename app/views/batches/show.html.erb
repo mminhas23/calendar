@@ -11,17 +11,59 @@
 </p>
 <p>
   <b>Tutor:</b>
-  <%= @batch.tutorName%>
+  <%= @batch.tutorName %>
 </p>
+<p>
+  <b>Total Seats:</b>
+  <%= @batch.total_seats %>
+</p>
+<p>
+  <b>Seats Remaining:</b>
+  <%= @batch.seats_available %>
+</p>
+<br/>
+
+<h2>List of enrolled students</h2>
 
 <p>
-  <b>Students:</b>
-  <% @batch.students.each do |student|%>
-    <%= student.first_name %>
-    <%= student.last_name %>
-  <% end %>
+  <div id='content'>
+    <div id="content-body">
+        <div id="description-bar">
+            <div class="cell-data">First Name</div>
+            <div class="cell-data">Last Name</div>
+            <div class="cell-data">DOB</div>
+            <div class="cell-data">Address</div>
+            <div class="cell-data">Email</div>
+            <div class="cell-data">Actions</div>
+        </div>
+        <% @batch.students.each do |student| %>
+            <div class="data-bar">
+                <div class="cell-data">
+                    <%= student.first_name %>
+                </div>
+                <div class="cell-data">
+                    <%= student.last_name %>
+                </div>
+                <div class="cell-data">
+                    <%= student.dob %>
+                </div>
+                <div class="cell-data">
+                    <%= student.address %>
+                </div>
+                <div class="cell-data">
+                    <%= student.email %>
+                </div>
+                <div class="actions">
+                    <div class="action-cell">
+                        <%= link_to 'Withdraw', withdraw_batch_path(:student =>student)%> |
+                        <%= link_to 'Notify'%>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
 </p>
+<br/>
 
-
-<%= link_to 'Edit', edit_batch_path(@batch) %> |
 <%= link_to 'Back', batches_path %>

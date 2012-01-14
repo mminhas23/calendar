@@ -42,6 +42,16 @@ class BatchesController < ApplicationController
     respond_with(@batch, :location=> batches_path)
   end
 
+  def withdraw
+    @batch = Batch.find(params[:id])
+    student = Student.find(params[:student])
+    student.withdraw_from(@batch)
+    if @batch.save
+      flash[:notice] = "Student was successfully removed from the batch"
+    end
+    respond_with(@batch, :location => batches_path)
+  end
+
   def destroy
     @batch = Batch.find(params[:id])
     @batch.update_student_statuses

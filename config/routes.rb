@@ -7,7 +7,9 @@ Calendar::Application.routes.draw do
   match '/students/courses/:id', :controller => 'students', :action => 'courses', :format => 'js', :via => "get"
 
   resources :home, :only => :index
-  resources :batches
+  resources :batches do
+    get 'withdraw', :on => :member
+  end
   resources :categories
   resources :courses do
     get 'enroll', :on => :member
